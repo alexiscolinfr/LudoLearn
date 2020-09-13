@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">LudoLearn</string>
+    <string name="play_button">Jouez !</string>
+    <string name="music_on">ON</string>
+    <string name="music_off">OFF</string>
 </resources>
