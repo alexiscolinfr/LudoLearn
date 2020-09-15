@@ -1,58 +1,49 @@
 package com.polytech.ludolearn;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.media.MediaPlayer;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class AccueilActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
 
-    MediaPlayer mediaPlayer;
-    private boolean sound;
+public class AccueilActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
-        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.background_music);
-        mediaPlayer.setLooping(true);
-        mediaPlayer.start();
-        sound=true;
+        Intent intent = new Intent(AccueilActivity.this, BackgroundSoundService.class);
+        startService(intent);
     }
 
     public void onPlayClicked(View view){
-
+        Intent intent = new Intent(this, ChoixConnectionActivity.class);
+        startActivity(intent);
     }
 
     public void onSoundClicked(View view){
         ImageButton img = (ImageButton) findViewById(R.id.sound_button);
 
-        if (mediaPlayer.isPlaying()){
-            mediaPlayer.pause();
-            img.setImageResource(R.drawable.volume_mute_solid);
-            sound=false;
+        if (isMyServiceRunning(BackgroundSoundService.class)) {
+            stopService(new Intent(this, BackgroundSoundService.class));
+            img.setImageResource(R.drawable.volume_mute);
         } else {
-            mediaPlayer.start();
-            img.setImageResource(R.drawable.volume_up_solid);
-            sound=true;
+            startService(new Intent(this, BackgroundSoundService.class));
+            img.setImageResource(R.drawable.volume_up);
         }
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mediaPlayer.pause();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (sound){
-            mediaPlayer.start();
+    private boolean isMyServiceRunning(Class<?> serviceClass) {
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.getName().equals(service.service.getClassName())) {
+                return true;
+            }
         }
+        return false;
     }
-
 
 }

@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">LudoLearn</string>
     <string name="play_button">Jouez !</string>
-    <string name="music_on">ON</string>
-    <string name="music_off">OFF</string>
+    <string name="log_in">Se connecter</string>
+    <string name="sign_in">S\'inscrire</string>
+    <string name="first_name">Prénom :</string>
+    <string name="last_name">Nom :</string>
+    <string name="email">E-mail :</string>
+    <string name="password">Mot de passe :</string>
+    <string name="validate">Valider</string>
 </resources>

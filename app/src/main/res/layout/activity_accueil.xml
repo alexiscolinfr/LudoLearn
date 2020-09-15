@@ -42,7 +42,7 @@
             android:padding="20dp"
             android:scaleType="fitCenter"
             android:onClick="onSoundClicked"
-            app:srcCompat="@drawable/volume_up_solid" />
+            app:srcCompat="@drawable/volume_up" />
 
     </LinearLayout>
 
