@@ -20,7 +20,7 @@ public class AccueilActivity extends AppCompatActivity {
     }
 
     public void onPlayClicked(View view){
-        Intent intent = new Intent(this, ChoixConnectionActivity.class);
+        Intent intent = new Intent(this, ConnexionActivity.class);
         startActivity(intent);
     }
 

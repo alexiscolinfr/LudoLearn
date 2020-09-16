@@ -26,7 +26,7 @@ public class ConnexionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_connexion);
     }
 
-    public void validate(View view){
+    public void signIn(View view){
 
         EditText mail = (EditText) findViewById(R.id.editTextEmail);
         EditText mdp = (EditText) findViewById(R.id.editTextPassword);
@@ -44,7 +44,7 @@ public class ConnexionActivity extends AppCompatActivity {
 
         for (int i = 0; i<liste.size(); i++ ) {
             if (liste.get(i).getAdresseMail().equals(valMail) && liste.get(i).getMotDePasse().equals(valMdp)) {
-                nomUser = liste.get(i).getPrenom() + " !";
+                nomUser = liste.get(i).getPrenom() ;
                 photo = liste.get(i).getPhoto(this);
                 progression = liste.get(i).getProgression();
                 Intent intent = new Intent(this, ChoixExerciceActivity.class);
@@ -56,5 +56,10 @@ public class ConnexionActivity extends AppCompatActivity {
             Toast.makeText(this, "Erreur dans la saisie des informations !", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    public void signUp(View view){
+        Intent intent = new Intent(this, InscriptionActivity.class);
+        startActivity(intent);
     }
 }

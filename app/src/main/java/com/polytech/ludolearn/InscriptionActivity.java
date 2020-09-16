@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.orm.SugarContext;
 import com.polytech.ludolearn.database.Eleve;
 
 import java.util.ArrayList;
@@ -41,8 +40,8 @@ public class InscriptionActivity extends AppCompatActivity {
     }
 
     public void validate (View view){
-        EditText nom = (EditText) findViewById(R.id.editTextFirstName);
-        EditText prenom = (EditText) findViewById(R.id.editTextLastName);
+        EditText nom = (EditText) findViewById(R.id.editTextLastName);
+        EditText prenom = (EditText) findViewById(R.id.editTextFirstName);
         EditText mail = (EditText) findViewById(R.id.editTextEmail);
         EditText mdp = (EditText) findViewById(R.id.editTextPassword);
 
@@ -68,8 +67,7 @@ public class InscriptionActivity extends AppCompatActivity {
             eleve.save();
             eleve.setPhoto(photo, this);
             eleve.save();
-            Intent intent = new Intent(this, ConnexionActivity.class);
-            startActivity(intent);
+            finish();
         }
     }
 }

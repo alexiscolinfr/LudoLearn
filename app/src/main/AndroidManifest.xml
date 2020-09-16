@@ -12,9 +12,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
+        <activity android:name=".QuizResultsActivity"></activity>
+        <activity
+            android:name=".IntrusActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PenduActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".QuizActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ChoixMathsActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ChoixExerciceActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ConnexionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".InscriptionActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".AccueilActivity"
             android:screenOrientation="portrait">
@@ -24,15 +43,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ConnexionActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".InscriptionActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ChoixConnectionActivity"
-            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="DATABASE"

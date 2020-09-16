@@ -1,11 +1,24 @@
 <resources>
     <string name="app_name">LudoLearn</string>
     <string name="play_button">Jouez !</string>
-    <string name="log_in">Se connecter</string>
-    <string name="sign_in">S\'inscrire</string>
+    <string name="sign_in">Se connecter</string>
+    <string name="sign_up">S\'inscrire</string>
     <string name="first_name">Prénom :</string>
     <string name="last_name">Nom :</string>
     <string name="email">E-mail :</string>
     <string name="password">Mot de passe :</string>
     <string name="validate">Valider</string>
+    <string name="game_choice">Choix du jeu :</string>
+    <string name="welcome">Bienvenue</string>
+    <string name="next_question">Question suivante</string>
+    <string name="restart">Rejouer</string>
+    <string name="return_home">Retour à l\'accueil</string>
+    <string name="french">Français :</string>
+    <string name="maths">Mathématiques :</string>
+    <string name="english">Anglais :</string>
+    <string name="sport">Sport :</string>
+    <string name="science">Sciences :</string>
+    <string name="history_geography">Histoire Géographie :</string>
+    <string name="plastic_arts">Arts Plastiques :</string>
+    <string name="results">Résultats</string>
 </resources>
