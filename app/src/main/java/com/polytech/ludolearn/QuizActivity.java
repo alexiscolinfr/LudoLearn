@@ -4,12 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
-import android.graphics.BlendMode;
-import android.graphics.BlendModeColorFilter;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -92,6 +91,9 @@ public class QuizActivity extends AppCompatActivity {
                 boutonVrai=listeBouton.get(k).getId();
             }
         }
+
+        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setProgress(nQuestion);
     }
 
 
@@ -355,6 +357,8 @@ public class QuizActivity extends AppCompatActivity {
                 Button boutonR4 = (Button) findViewById(R.id.button4);
                 TextView numeroQuestion = (TextView) findViewById(R.id.textViewQuestionNumber);
                 numeroQuestion.setText(nQuestion + "/10");
+                ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+                progressBar.setProgress(nQuestion);
 
                 listeBouton.add(boutonR1);
                 listeBouton.add(boutonR2);

@@ -12,7 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
-        <activity android:name=".QuizResultsActivity"></activity>
+        <activity android:name=".MathsResultsActivity"></activity>
+        <activity android:name=".ChoixTableMultActivity" />
+        <activity android:name=".MathsActivity" />
+        <activity android:name=".IntrusResultsActivity" />
+        <activity android:name=".QuizResultsActivity" />
         <activity
             android:name=".IntrusActivity"
             android:screenOrientation="portrait" />

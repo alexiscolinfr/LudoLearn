@@ -17,31 +17,31 @@ public class QuizResultsActivity extends AppCompatActivity {
         TextView textScore = (TextView) findViewById(R.id.textViewErreursAnglais);
         int nbQuestions = QuizActivity.nbQuestionsAnglais;
         int nbErreurs = nbQuestions - QuizActivity.nbErreursAnglais;
-        textScore.setText(textScore.getText() + " " + Integer.toString(nbErreurs) +"/"+ Integer.toString(nbQuestions));
+        textScore.setText(textScore.getText() + " : " + Integer.toString(nbErreurs) +"/"+ Integer.toString(nbQuestions));
         textScore = (TextView) findViewById(R.id.textViewErreursArtsPlastiques);
         nbQuestions = QuizActivity.nbQuestionsArtsPlastiques;
         nbErreurs = nbQuestions - QuizActivity.nbErreursArtsPlastiques;
-        textScore.setText(textScore.getText() + " " + Integer.toString(nbErreurs) +"/"+ Integer.toString(nbQuestions));
+        textScore.setText(textScore.getText() + " : " + Integer.toString(nbErreurs) +"/"+ Integer.toString(nbQuestions));
         textScore = (TextView) findViewById(R.id.textViewErreursFrancais);
         nbQuestions = QuizActivity.nbQuestionsFrancais;
         nbErreurs = nbQuestions - QuizActivity.nbErreursFrancais;
-        textScore.setText(textScore.getText() + " " + Integer.toString(nbErreurs) +"/"+ Integer.toString(nbQuestions));
+        textScore.setText(textScore.getText() + " : " + Integer.toString(nbErreurs) +"/"+ Integer.toString(nbQuestions));
         textScore = (TextView) findViewById(R.id.textViewErreursHistoireGeo);
         nbQuestions = QuizActivity.nbQuestionsHistoireGeo;
         nbErreurs = nbQuestions - QuizActivity.nbErreursHistoireGeo;
-        textScore.setText(textScore.getText() + " " + Integer.toString(nbErreurs) +"/"+ Integer.toString(nbQuestions));
+        textScore.setText(textScore.getText() + " : " + Integer.toString(nbErreurs) +"/"+ Integer.toString(nbQuestions));
         textScore = (TextView) findViewById(R.id.textViewErreursMaths);
         nbQuestions = QuizActivity.nbQuestionsMaths;
         nbErreurs = nbQuestions - QuizActivity.nbErreursMaths;
-        textScore.setText(textScore.getText() + " " + Integer.toString(nbErreurs) +"/"+ Integer.toString(nbQuestions));
+        textScore.setText(textScore.getText() + " : " + Integer.toString(nbErreurs) +"/"+ Integer.toString(nbQuestions));
         textScore = (TextView) findViewById(R.id.textViewErreursSciences);
         nbQuestions = QuizActivity.nbQuestionsSciences;
         nbErreurs = nbQuestions - QuizActivity.nbErreursSciences;
-        textScore.setText(textScore.getText() + " " + Integer.toString(nbErreurs) +"/"+ Integer.toString(nbQuestions));
+        textScore.setText(textScore.getText() + " : " + Integer.toString(nbErreurs) +"/"+ Integer.toString(nbQuestions));
         textScore = (TextView) findViewById(R.id.textViewErreursSport);
         nbQuestions = QuizActivity.nbQuestionsSport;
         nbErreurs = nbQuestions - QuizActivity.nbErreursSport;
-        textScore.setText(textScore.getText() + " " + Integer.toString(nbErreurs) +"/"+ Integer.toString(nbQuestions));
+        textScore.setText(textScore.getText() + " : " + Integer.toString(nbErreurs) +"/"+ Integer.toString(nbQuestions));
     }
 
     public void exitQuiz(View view){
