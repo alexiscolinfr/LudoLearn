@@ -19,6 +19,40 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="70dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout8"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:text="@string/create_account" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="studentSignUp"
+            android:text="@string/i_am_student" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="teacherSignUp"
+            android:text="@string/i_am_teacher" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout8"
+        android:layout_width="match_parent"
         android:layout_height="120dp"
         android:orientation="horizontal"
         android:padding="10dp"
@@ -31,19 +65,21 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/play_button"
-            android:onClick="onPlayClicked"
+            android:onClick="signIn"
+            android:text="@string/sign_in"
             android:textSize="25sp" />
 
         <ImageButton
             android:id="@+id/sound_button"
             android:layout_width="100dp"
             android:layout_height="match_parent"
+            android:onClick="onSoundClicked"
             android:padding="20dp"
             android:scaleType="fitCenter"
-            android:onClick="onSoundClicked"
             app:srcCompat="@drawable/volume_up" />
 
     </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

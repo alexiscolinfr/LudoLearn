@@ -5,12 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.polytech.ludolearn.database.Eleve;
+import com.polytech.ludolearn.database.Profil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,11 +20,14 @@ public class InscriptionActivity extends AppCompatActivity {
 
     public Bitmap photo;
     public ImageView img;
+    private boolean isTeacher = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inscription);
+        setContentView(R.layout.activity_inscription_eleve);
+        Bundle extras = getIntent().getExtras();
+        isTeacher = extras.getBoolean("isTeacher");
     }
 
     public void takePicture(View view){
@@ -42,31 +46,40 @@ public class InscriptionActivity extends AppCompatActivity {
     public void validate (View view){
         EditText nom = (EditText) findViewById(R.id.editTextLastName);
         EditText prenom = (EditText) findViewById(R.id.editTextFirstName);
+        EditText codeClasse = (EditText) findViewById(R.id.editTextCodeClasse);
         EditText mail = (EditText) findViewById(R.id.editTextEmail);
         EditText mdp = (EditText) findViewById(R.id.editTextPassword);
 
-        String valNom, valPrenom, valMail, valMdp;
+        String valNom, valPrenom, valCodeClasse, valMail, valMdp;
 
         valNom = nom.getText().toString();
         valPrenom = prenom.getText().toString();
+        valCodeClasse = codeClasse.getText().toString();
         valMail = mail.getText().toString();
         valMdp = mdp.getText().toString();
 
-        List<Eleve> listeInscrits = Eleve.listAll(Eleve.class);
+        List<Profil> listeInscrits = Profil.listAll(Profil.class);
         ArrayList<String> listeInscritsMail = new ArrayList<>();
-        for (Eleve eleve : listeInscrits){
-            listeInscritsMail.add(eleve.getAdresseMail());
+        ArrayList<Integer> listeCodesClasse = new ArrayList<>();
+        for (Profil profil : listeInscrits){
+            listeInscritsMail.add(profil.getAdresseMail());
+            if(!listeCodesClasse.contains(profil.getCodeClasse()))
+                listeCodesClasse.add(profil.getCodeClasse());
         }
 
-        if (valNom.equals("") || valPrenom.equals("") || valMail.equals("") || valMdp.equals("")) {
+        if (valNom.equals("") || valPrenom.equals("") || valCodeClasse.equals("") || valMail.equals("") || valMdp.equals("")) {
             Toast.makeText(this, "Vous devez renseigner tous les champs !", Toast.LENGTH_SHORT).show();
         } else if (listeInscritsMail.contains(valMail)){
-            Toast.makeText(this, "Cette adresse mail existe déjà !", Toast.LENGTH_SHORT).show();
-        } else {
-            Eleve eleve = new Eleve(valNom, valPrenom, valMail, valMdp);
-            eleve.save();
-            eleve.setPhoto(photo, this);
-            eleve.save();
+                Toast.makeText(this, "Cette adresse mail existe déjà !", Toast.LENGTH_SHORT).show();
+        } else if (!isTeacher && !listeCodesClasse.contains(Integer.parseInt(valCodeClasse))) {
+            Toast.makeText(this, "Le code classe est invalide !", Toast.LENGTH_SHORT).show();
+        } else if (isTeacher && listeCodesClasse.contains(Integer.parseInt(valCodeClasse))) {
+            Toast.makeText(this, "Le code classe est invalide !", Toast.LENGTH_SHORT).show();
+        }else {
+            Profil profil = new Profil(valNom, valPrenom, Integer.parseInt(valCodeClasse), valMail, valMdp, isTeacher);
+            profil.save();
+            profil.setPhoto(photo, this);
+            profil.save();
             finish();
         }
     }

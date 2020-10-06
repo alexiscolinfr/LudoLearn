@@ -9,6 +9,8 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.polytech.ludolearn.database.Profil;
+
 public class AccueilActivity extends AppCompatActivity {
 
     @Override
@@ -19,7 +21,19 @@ public class AccueilActivity extends AppCompatActivity {
         startService(intent);
     }
 
-    public void onPlayClicked(View view){
+    public void studentSignUp(View view){
+        Intent intent = new Intent(this, InscriptionActivity.class);
+        intent.putExtra("isTeacher",false);
+        startActivity(intent);
+    }
+
+    public void teacherSignUp(View view){
+        Intent intent = new Intent(this, InscriptionActivity.class);
+        intent.putExtra("isTeacher",true);
+        startActivity(intent);
+    }
+
+    public void signIn(View view){
         Intent intent = new Intent(this, ConnexionActivity.class);
         startActivity(intent);
     }

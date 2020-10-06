@@ -8,23 +8,25 @@ import com.orm.SugarRecord;
 
 import java.io.FileOutputStream;
 
-public class Eleve extends SugarRecord {
+public class Profil extends SugarRecord {
 
+    private boolean isTeacher;
     private String nom;
     private String prenom;
+    private int codeClasse;
     private String adresseMail;
     private String motDePasse;
     private String photoPath;
-    private int progression;
 
-    public Eleve(){}
+    public Profil(){}
 
-    public Eleve(String nom, String prenom, String mail, String mdp){
+    public Profil(String nom, String prenom, int codeClasse, String mail, String mdp, boolean isTeacher){
+        this.isTeacher = isTeacher;
         this.nom=nom;
         this.prenom=prenom;
+        this.codeClasse = codeClasse;
         this.adresseMail=mail;
         this.motDePasse=mdp;
-        this.progression=100;
     }
 
     public Bitmap getPhoto(Context context) {
@@ -37,6 +39,10 @@ public class Eleve extends SugarRecord {
         return null;
     }
 
+    public boolean isTeacher() {
+        return isTeacher;
+    }
+
     public String getNom(){
         return nom;
     }
@@ -45,6 +51,8 @@ public class Eleve extends SugarRecord {
         return prenom;
     }
 
+    public int getCodeClasse(){return  codeClasse;}
+
     public String getAdresseMail(){
         return adresseMail;
     }
@@ -52,8 +60,6 @@ public class Eleve extends SugarRecord {
     public String getMotDePasse(){
         return motDePasse;
     }
-
-    public int getProgression() { return  progression; }
 
     public void setPhoto(Bitmap photo, Context context) {
         try{
@@ -67,23 +73,5 @@ public class Eleve extends SugarRecord {
             e.printStackTrace();
         }
     }
-
-    public void setPrenom(String prenom){
-        this.prenom=prenom;
-    }
-
-    public void setNom(String nom){
-        this.nom=nom;
-    }
-
-    public void setAdresseMail(String mail){
-        this.adresseMail=mail;
-    }
-
-    public void setMotDePasse(String mdp){
-        this.nom=mdp;
-    }
-
-    public  void setProgression(int progression) { this.progression=progression;}
 
 }

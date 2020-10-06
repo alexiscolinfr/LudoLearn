@@ -44,31 +44,31 @@ public class PenduActivity extends AppCompatActivity {
     }
 
     // CHOISI UN MOT AU HASARD DANS LA CATEGORIE CHOISIE
-    public void randMot(String theme){
+    public void randMot(int buttonId){
         motPendu = (TextView) findViewById(R.id.motADeviner);
-        switch(theme){
-            case "Histoire" :
+        switch(buttonId){
+            case R.id.categorieHistoire :
                 listeMotUtilisee = listeMotHistoire;
                 break;
-            case "Géo" :
+            case R.id.categorieGeographie :
                 listeMotUtilisee = listeMotGeographie;
                 break;
-            case "Francais" :
+            case R.id.categorieFrancais :
                 listeMotUtilisee = listeMotFrancais;
                 break;
-            case "Maths" :
+            case R.id.categorieMaths :
                 listeMotUtilisee = listeMotMaths;
                 break;
-            case "Sport" :
+            case R.id.categorieSport :
                 listeMotUtilisee = listeMotSport;
                 break;
-            case "Art Plastique" :
+            case R.id.categorieArtPlastique :
                 listeMotUtilisee = listeMotArtPlastique;
                 break;
-            case "Anglais" :
+            case R.id.categorieAnglais :
                 listeMotUtilisee = listeMotAnglais;
                 break;
-            case "Musique" :
+            case R.id.categorieMusique :
                 listeMotUtilisee = listeMotMusique;
                 break;
         }
@@ -133,49 +133,39 @@ public class PenduActivity extends AppCompatActivity {
                     case 1:
                         imagePendu.setImageResource(R.drawable.pendu1);
                         break;
-
                     case 2:
                         imagePendu.setImageResource(R.drawable.pendu2);
                         break;
-
                     case 3:
                         imagePendu.setImageResource(R.drawable.pendu3);
                         break;
-
                     case 4:
                         imagePendu.setImageResource(R.drawable.pendu4);
                         break;
-
                     case 5:
                         imagePendu.setImageResource(R.drawable.pendu5);
                         break;
-
                     case 6:
                         imagePendu.setImageResource(R.drawable.pendu6);
                         break;
-
                     case 7:
                         imagePendu.setImageResource(R.drawable.pendu7);
                         break;
-
                     case 8:
                         imagePendu.setImageResource(R.drawable.pendu8);
                         break;
-
                     case 9:
                         imagePendu.setImageResource(R.drawable.pendu9);
                         break;
-
                     case 10:
                         imagePendu.setImageResource(R.drawable.pendu10);
                         break;
-
                     case 11:
                         imagePendu.setImageResource(R.drawable.game_over);
                         motPendu.setText(motEntier);
 
                         TextView definition = (TextView) findViewById(R.id.textDefinition);
-                        definition.setText(listeMotUtilisee.get(motEntier));;
+                        definition.setText(listeMotUtilisee.get(motEntier));
 
                         finPartie();
                         break;
@@ -217,12 +207,9 @@ public class PenduActivity extends AppCompatActivity {
     public void choixCategorie(View view) {
         Button b = (Button) view;
         setContentView(R.layout.activity_pendu);
-        String categorieChoisie = b.getText().toString();
-        randMot(categorieChoisie);// La categorie choisie en parametre
+        randMot(view.getId());
         TextView textCategorie = (TextView) findViewById(R.id.textCategorie);
-        textCategorie.setText("Catégorie: " + categorieChoisie);
-
-
+        textCategorie.setText("Catégorie: " + b.getText().toString());
         activityCategoriePendu = false;
     }
 

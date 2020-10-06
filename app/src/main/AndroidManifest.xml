@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
-        <activity android:name=".MathsResultsActivity"></activity>
+        <activity android:name=".ProgressionActivity"></activity>
+        <activity android:name=".MathsResultsActivity" />
         <activity android:name=".ChoixTableMultActivity" />
         <activity android:name=".MathsActivity" />
         <activity android:name=".IntrusResultsActivity" />
@@ -53,7 +54,7 @@
             android:value="database.db" />
         <meta-data
             android:name="VERSION"
-            android:value="18" />
+            android:value="19" />
         <meta-data
             android:name="QUERY_LOG"
             android:value="true" />

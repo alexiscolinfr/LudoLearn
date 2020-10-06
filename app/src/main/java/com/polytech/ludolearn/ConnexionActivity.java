@@ -7,27 +7,30 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
-import com.polytech.ludolearn.database.Eleve;
+import com.polytech.ludolearn.database.Profil;
 
 import java.util.List;
 
 public class ConnexionActivity extends AppCompatActivity {
 
-    public boolean existe = false;
+    public boolean existe;
     public static String nomUser = null;
     public static Bitmap photo;
-    public static int progression;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connexion);
+        existe = false;
     }
 
     public void signIn(View view){
 
+        RadioButton buttonStudent = (RadioButton) findViewById(R.id.radioButtonStudent);
+        RadioButton buttonTeacher = (RadioButton) findViewById(R.id.radioButtonTeacher);
         EditText mail = (EditText) findViewById(R.id.editTextEmail);
         EditText mdp = (EditText) findViewById(R.id.editTextPassword);
 
@@ -39,27 +42,48 @@ public class ConnexionActivity extends AppCompatActivity {
         if (valMail.equals("") || valMdp.equals("")) {
             Toast.makeText(this, "Vous devez renseigner tous les champs !", Toast.LENGTH_SHORT).show();
         }
+        else{
+            if(buttonStudent.isChecked()) // CONNEXION D'UN ELEVE
+            {
+                List<Profil> liste = Profil.listAll(Profil.class);
 
-        List<Eleve> liste = Eleve.listAll(Eleve.class);
-
-        for (int i = 0; i<liste.size(); i++ ) {
-            if (liste.get(i).getAdresseMail().equals(valMail) && liste.get(i).getMotDePasse().equals(valMdp)) {
-                nomUser = liste.get(i).getPrenom() ;
-                photo = liste.get(i).getPhoto(this);
-                progression = liste.get(i).getProgression();
-                Intent intent = new Intent(this, ChoixExerciceActivity.class);
-                startActivity(intent);
-                existe = true;
+                for (int i = 0; i<liste.size(); i++ ) {
+                    if (liste.get(i).getAdresseMail().equals(valMail) && liste.get(i).getMotDePasse().equals(valMdp)) {
+                        if(!liste.get(i).isTeacher()){
+                            nomUser = liste.get(i).getPrenom() ;
+                            photo = liste.get(i).getPhoto(this);
+                            Intent intent = new Intent(this, ChoixExerciceActivity.class);
+                            startActivity(intent);
+                            existe = true;
+                        }
+                        break;
+                    }
+                }
+                if (!existe){
+                    Toast.makeText(this, "Erreur dans la saisie des informations !", Toast.LENGTH_SHORT).show();
+                }
             }
-        }
-        if (!existe){
-            Toast.makeText(this, "Erreur dans la saisie des informations !", Toast.LENGTH_SHORT).show();
-        }
+            else if (buttonTeacher.isChecked()) // CONNEXION D'UN PROFESSEUR
+            {
+                List<Profil> liste = Profil.listAll(Profil.class);
 
-    }
-
-    public void signUp(View view){
-        Intent intent = new Intent(this, InscriptionActivity.class);
-        startActivity(intent);
+                for (int i = 0; i<liste.size(); i++ ) {
+                    if (liste.get(i).getAdresseMail().equals(valMail) && liste.get(i).getMotDePasse().equals(valMdp)) {
+                        if(liste.get(i).isTeacher()){
+                            nomUser = liste.get(i).getPrenom() ;
+                            photo = liste.get(i).getPhoto(this);
+                            Intent intent = new Intent(this, ProgressionActivity.class);
+                            startActivity(intent);
+                            existe = true;
+                        }
+                        break;
+                    }
+                }
+                if (!existe){
+                    Toast.makeText(this, "Erreur dans la saisie des informations !", Toast.LENGTH_SHORT).show();
+                }
+            }
+            existe = false;
+        }
     }
 }
