@@ -46,13 +46,6 @@
             android:text="@string/english" />
 
         <TextView
-            android:id="@+id/textViewErreursSport"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="@string/sport" />
-
-        <TextView
             android:id="@+id/textViewErreursSciences"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,19 +53,18 @@
             android:text="@string/science" />
 
         <TextView
-            android:id="@+id/textViewErreursHistoireGeo"
+            android:id="@+id/textViewErreursHistoire"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="@string/history_geography" />
+            android:text="@string/history" />
 
         <TextView
-            android:id="@+id/textViewErreursArtsPlastiques"
+            android:id="@+id/textViewErreursGeographie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="@string/plastic_arts" />
-
+            android:text="@string/geography" />
     </LinearLayout>
 
     <LinearLayout

@@ -21,12 +21,12 @@ import java.util.Random;
 
 public class QuizActivity extends AppCompatActivity {
 
-    public static int nbQuestionsFrancais, nbQuestionsAnglais, nbQuestionsSport, nbQuestionsHistoireGeo, nbQuestionsArtsPlastiques, nbQuestionsSciences, nbQuestionsMaths;
-    public static int nbErreursFrancais, nbErreursAnglais, nbErreursSport, nbErreursHistoireGeo,  nbErreursArtsPlastiques, nbErreursSciences, nbErreursMaths;
-    public int nQuestion=1;
+    public static int nbQuestionsFrancais, nbQuestionsAnglais, nbQuestionsHistoire, nbQuestionsGeographie, nbQuestionsSciences, nbQuestionsMaths;
+    public static int nbErreursFrancais, nbErreursAnglais, nbErreursHistoire, nbErreursGeographie, nbErreursSciences, nbErreursMaths;
+    public int nQuestion = 1;
     public List<Question> listeQuestion;
-    public ArrayList<Button> listeBouton = new ArrayList<>();
-    public ArrayList<Integer> intList = new ArrayList<>();
+    public ArrayList<Button> listeBouton = new ArrayList<Button>();
+    public ArrayList<Integer> intList = new ArrayList<Integer>();
     public int boutonVrai;
     public boolean choixEffectue;
 
@@ -39,21 +39,19 @@ public class QuizActivity extends AppCompatActivity {
         nbQuestionsFrancais = 0;
         nbErreursAnglais = 0;
         nbQuestionsAnglais = 0;
-        nbErreursSport = 0;
-        nbQuestionsSport = 0;
-        nbErreursHistoireGeo = 0;
-        nbQuestionsHistoireGeo = 0;
-        nbErreursArtsPlastiques = 0;
-        nbQuestionsArtsPlastiques =0;
+        nbErreursHistoire = 0;
+        nbQuestionsHistoire = 0;
+        nbErreursGeographie = 0;
+        nbQuestionsGeographie = 0;
         nbErreursSciences = 0;
         nbQuestionsSciences = 0;
         nbErreursMaths = 0;
         nbQuestionsMaths = 0;
 
-        // Générer ma liste aléatoire de chiffres sans doublons
-        int i=0;
-        while (i<10){
-            int val = new Random().nextInt(20);
+        // Générer une liste aléatoire de chiffres sans doublon
+        int i = 0;
+        while (i < 20){
+            int val = new Random().nextInt(50);
             if (!intList.contains(val)){
                 intList.add(val);
                 i++;
@@ -61,17 +59,17 @@ public class QuizActivity extends AppCompatActivity {
         }
         initQuestions();
 
-        //Affichage de ma question
+        //Affichage de la question
         listeQuestion = Question.listAll(Question.class);
 
-        TextView numeroQuestion = findViewById(R.id.textViewQuestionNumber);
-        numeroQuestion.setText(nQuestion + "/10");
-        TextView text = findViewById(R.id.textViewQuestion);
+        TextView numeroQuestion = (TextView) findViewById(R.id.textViewQuestionNumber);
+        numeroQuestion.setText(nQuestion + "/20");
+        TextView text = (TextView) findViewById(R.id.textViewQuestion);
         text.setText(listeQuestion.get(intList.get(nQuestion-1)).getIntitule());
-        Button boutonR1 = findViewById(R.id.button1);
-        Button boutonR2 = findViewById(R.id.button2);
-        Button boutonR3 = findViewById(R.id.button3);
-        Button boutonR4 = findViewById(R.id.button4);
+        Button boutonR1 = (Button) findViewById(R.id.button1);
+        Button boutonR2 = (Button) findViewById(R.id.button2);
+        Button boutonR3 = (Button) findViewById(R.id.button3);
+        Button boutonR4 = (Button) findViewById(R.id.button4);
 
         listeBouton.add(boutonR1);
         listeBouton.add(boutonR2);
@@ -79,12 +77,12 @@ public class QuizActivity extends AppCompatActivity {
         listeBouton.add(boutonR4);
 
         Collections.shuffle(listeBouton);
-        for (int k =0 ; k<listeBouton.size(); k++){
-            if (k==0){
+        for (int k = 0 ; k < listeBouton.size(); k++){
+            if (k == 0){
                 listeBouton.get(k).setText(listeQuestion.get(intList.get(nQuestion-1)).getReponseFausse1());
-            } else if (k==1){
+            } else if (k == 1){
                 listeBouton.get(k).setText(listeQuestion.get(intList.get(nQuestion-1)).getReponseFausse2());
-            } else if (k==2){
+            } else if (k == 2){
                 listeBouton.get(k).setText(listeQuestion.get(intList.get(nQuestion-1)).getReponseFausse3());
             } else {
                 listeBouton.get(k).setText(listeQuestion.get(intList.get(nQuestion-1)).getReponseVrai());
@@ -92,7 +90,7 @@ public class QuizActivity extends AppCompatActivity {
             }
         }
 
-        ProgressBar progressBar = findViewById(R.id.progressBar);
+        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setProgress(nQuestion);
     }
 
@@ -101,53 +99,40 @@ public class QuizActivity extends AppCompatActivity {
     public void validate(View view) {
 
         //Gestion des erreurs
-        switch (listeQuestion.get(intList.get(nQuestion - 1)).getTag()) {
-            case "Français":
-                if (view.getId() != boutonVrai) {
-                    nbErreursFrancais++;
-                }
-                nbQuestionsFrancais++;
-                break;
-            case "Anglais":
-                if (view.getId() != boutonVrai) {
-                    nbErreursAnglais++;
-                }
-                nbQuestionsAnglais++;
-                break;
-            case "Sport":
-                if (view.getId() != boutonVrai) {
-                    nbErreursSport++;
-                }
-                nbQuestionsSport++;
-                break;
-            case "Histoire-Géographie":
-                if (view.getId() != boutonVrai) {
-                    nbErreursHistoireGeo++;
-                }
-                nbQuestionsHistoireGeo++;
-                break;
-            case "Arts-plastiques":
-                if (view.getId() != boutonVrai) {
-                    nbErreursArtsPlastiques++;
-                }
-                nbQuestionsArtsPlastiques++;
-                break;
-            case "Sciences":
-                if (view.getId() != boutonVrai) {
-                    nbErreursSciences++;
-                }
-                nbQuestionsSciences++;
-                break;
-            case "Mathématiques":
-                if (view.getId() != boutonVrai) {
-                    nbErreursMaths++;
-                }
-                nbQuestionsMaths++;
-                break;
+        if (listeQuestion.get(intList.get(nQuestion-1)).getTag().equals("Français")){
+            if (view.getId() != boutonVrai){
+                nbErreursFrancais++;
+            }
+            nbQuestionsFrancais++;
+        } else if (listeQuestion.get(intList.get(nQuestion-1)).getTag().equals("Anglais")){
+            if (view.getId() != boutonVrai){
+                nbErreursAnglais++;
+            }
+            nbQuestionsAnglais++;
+        } else if (listeQuestion.get(intList.get(nQuestion-1)).getTag().equals("Histoire")){
+            if (view.getId() != boutonVrai){
+                nbErreursHistoire++;
+            }
+            nbQuestionsHistoire++;
+        } else if (listeQuestion.get(intList.get(nQuestion-1)).getTag().equals("Géographie")){
+            if (view.getId() != boutonVrai){
+                nbErreursGeographie++;
+            }
+            nbQuestionsGeographie++;
+        } else if (listeQuestion.get(intList.get(nQuestion-1)).getTag().equals("Sciences")){
+            if (view.getId() != boutonVrai){
+                nbErreursSciences++;
+            }
+            nbQuestionsSciences++;
+        } else if (listeQuestion.get(intList.get(nQuestion-1)).getTag().equals("Mathématiques")){
+            if (view.getId() != boutonVrai){
+                nbErreursMaths++;
+            }
+            nbQuestionsMaths++;
         }
         nQuestion++;
 
-        // AFFICHAGE DE LA BONNE REPONSE
+        // Affichage de la bonne réponse
         for (int k =0 ; k<listeBouton.size(); k++){
             if(listeBouton.get(k).getId() == boutonVrai) listeBouton.get(k).getBackground().setColorFilter(ContextCompat.getColor(this, R.color.correct), PorterDuff.Mode.MULTIPLY);
 
@@ -158,214 +143,233 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     public void initQuestions(){
-        Question question = new Question(
-                "Les mots «pair» et «paire» sont des...",
-                "Des antonymes",
-                "Des Anonymes",
-                "Des synonymes",
-                "Des homonymes",
-                "Français");
-        question.save();
+        Question question1 = new Question(
+                "Quelle période historique commence au Vème siècle ?",
+                "L'Antiquité",
+                "Les Temps Modernes",
+                "L'Epoque Contemporaine",
+                "Le Moyen-Âge",
+                "Histoire");
+        question1.save();
 
         Question question2 = new Question(
-                "Quel océan entoure l'île de Madagascar ?",
-                "Océan Pacifique",
-                "Océan Atlantique",
-                "Océan Océanique",
-                "Océan Indien",
-                "Histoire-Géographie");
+                "Quelle événement marque le début du Moyen-Âge ?",
+                "La mort de Jules César",
+                "La bataille d'Alésia",
+                "La naissance de Jésus-Christ",
+                "La chute de l’Empire romain",
+                "Histoire");
         question2.save();
 
         Question question3 = new Question(
-                "Combien un cube a-t-il de arêtes ?",
-                "4",
-                "8",
-                "6",
-                "12",
-                "Mathématiques");
+                "Qui est le roi des Francs ?",
+                "Charlemagne",
+                "Jule César",
+                "Charles Martel",
+                "Clovis",
+                "Histoire");
         question3.save();
 
         Question question4 = new Question(
-                "À quelle date correspond l'équinoxe d'automne (à 1 ou 2 jours près) (dans l'hémisphère sud) ?",
-                "Le 21 mars",
-                "Le 21 juin",
-                "Le 21 decembre",
-                "Le 21 septembre",
-                "Sciences");
+                "Qui sont les descendants de Clovis ?",
+                "Les Celtes",
+                "Les Romains",
+                "Les Carolingiens",
+                "Les Mérovingiens",
+                "Histoire");
         question4.save();
 
         Question question5 = new Question(
-                "Zoé a 20 ans. Sa maman lui dit : 'J'ai exactement le double de ton âge. Mais quel âge aurai-je quand tu auras l'âge que j'ai aujourd'hui ?'",
-                "40 ans",
-                "80 ans",
-                "160 ans",
-                "60 ans",
-                "Mathématiques");
+                "Quelle dynastie commnence au VIIIème siècle ?",
+                "Les Capétiens",
+                "Les Romains",
+                "Les Mérovingiens",
+                "Les Carolingiens",
+                "Histoire");
         question5.save();
 
         Question question6 = new Question(
-                "Lequel de ces pays n'appartient pas à l'Union européenne ?",
-                "Grèce",
-                " Belgique",
-                "Portugal",
-                "Suisse",
-                "Histoire-Géographie");
+                "Quel roi repousse l'invasion des Sarrasins (Arabes), à Poitiers, en 732 ?",
+                "Charlemagne",
+                "Jule César",
+                "Clovis",
+                "Charles Martel",
+                "Histoire");
         question6.save();
 
         Question question7 = new Question(
-                "Quel composant de l'air l'être humain absorbe-t-il pour respirer ?",
-                "Le gaz carbonique",
-                "L'azote",
-                "Le souffre",
-                "L'oxygène",
-                "Sciences");
+                "Qui est le premier roi de la dynastie des Carolingiens ?",
+                "Charlemagne",
+                "Charles Martel",
+                "Clovis",
+                "Pépin le Bref",
+                "Histoire");
         question7.save();
 
         Question question8 = new Question(
-                "En quelle année a débuté la 2ème Guerre Mondiale ?",
-                "1914",
-                "2018",
-                "1962",
-                "1939",
-                "Histoire-Géographie");
+                "Charles Martel, Charlemagne, Pépin le Bref sont respectivement : '",
+                "Père, Fils, Grand-Père",
+                "Grand-Père, Père, Fils",
+                "N'ont aucune relation de parenté",
+                "Grand-Père, Fils, Père",
+                "Histoire");
         question8.save();
 
         Question question9 = new Question(
-                "Quelle est la capitale de l'Angleterre ?",
-                "Paris",
-                "Berlin",
-                "Roybon",
-                "Londres",
-                "Histoire-Géographie");
+                "En quelle année Charlemagne devient empereur des Francs ?",
+                "732",
+                "771",
+                "814",
+                "800",
+                "Histoire");
         question9.save();
 
         Question question10 = new Question(
-                "Conjugue le verbe chanter au présent à la 3ème personne du singulier.",
-                "Il chantes",
-                "Ils chantent",
-                "Il mange",
-                "Il chante",
-                "Français");
+                "À la mort de Charlemagne, ses descendants partagent l’empire en trois empires :",
+                "la Francie occidentale (à l'est), la Francie orientale (à l'ouest), la Lotharingie (au centre)",
+                "la Francie occidentale (au centre), la Francie orientale (à l'est), la Lotharingie (à l'ouest)",
+                "la Francie occidentale (à l'ouest), la Francie orientale (au centre), la Lotharingie (à l'est)",
+                "la Francie occidentale (à l'ouest), la Francie orientale (à l'est), la Lotharingie (au centre)",
+                "Histoire");
         question10.save();
 
         Question question11 = new Question(
-                "Par quelle couleur est généralement représenté le sang oxygéné sur les schémas de la circulation sanguine ?",
-                "Bleu",
-                "Blanc",
-                "Pourpre",
-                "Rouge",
-                "Sciences");
+                "Quelle dynastie commennce lors du couronnement de Hugues Capet en roi des Francs ?",
+                "Les Carolingiens",
+                "Les Romains",
+                "Les Mérovingiens",
+                "Les Capétiens",
+                "Histoire");
         question11.save();
 
         Question question12 = new Question(
-                "Que signifie 'Goodbye' ?",
-                "Bonjour",
-                "Bonne nuit",
-                "Chat",
-                "Au revoir",
-                "Anglais");
+                "Qui a instauré la monarchie absolue au XVIIème siècle ?",
+                "Louis XII (le père de Louis XIV)",
+                "Napoléon I",
+                "Napoléon III",
+                "Louis XIV",
+                "Histoire");
         question12.save();
 
         Question question13 = new Question(
-                "Quelle est la fonction de 'en Provence' dans la phrase 'je pars en Provence' ?",
-                "Sujet",
-                "Verbe",
-                "Destination",
-                "Complément",
-                "Français");
+                "Quel siècle est considéré comme le siècle des Lumières ?",
+                "Le XVIIème siècle",
+                "Le XVIème siècle",
+                "Le XVème siècle",
+                "Le XVIIIème siècle",
+                "Histoire");
         question13.save();
 
         Question question14 = new Question(
-                "Qui a peint la Joconde ?",
-                "Gustave Eiffel",
-                "Picasso",
-                "Charles II",
-                "Léonard de Vinci",
-                "Arts-plastiques");
+                "En quelle année a eu lieu la capitulation de l'Allemagne nazie ?",
+                "1914",
+                "1918",
+                "1939",
+                "1945",
+                "Histoire");
         question14.save();
 
         Question question15 = new Question(
-                "Comment appelle-t-on la glace qui peut se former sur la route en hiver ?",
-                "La vergle",
-                "Le verger",
-                "Les glaçons",
-                "Le verglas",
-                "Sciences");
+                "Suite aux mauvaises relations Américaines et Soviétiques, deux blocs se formés : ",
+                "Le bloc de l'Est et le bloc du Nord",
+                "Le bloc de l'Ouest et le bloc du Sud",
+                "Le bloc du Nord et le bloc du Sud",
+                "Le bloc de l'Est et le bloc de l'Ouest",
+                "Histoire");
         question15.save();
 
         Question question16 = new Question(
-                "Dans lequel de ces sports n'avons nous pas besoin d'une raquette ?",
-                "Le tennis",
-                "Le badminton",
-                "Le ping-pong",
-                "Le voley-Ball",
-                "Sport");
+                "A quel bloc correspond le bloc Sovétique ?",
+                "Le bloc du Nord",
+                "Le bloc de l'Ouest",
+                "Le bloc du Nord",
+                "Le bloc de l'Est",
+                "Histoire");
         question16.save();
 
         Question question17 = new Question(
-                "A quel sport joue-t-on avec un ballon rond ?",
-                "Tennis",
-                "Rugby",
-                "Le loup",
-                "Handball",
-                "Sport");
+                "A quel bloc correspond le bloc Américain ?",
+                "Le bloc du Nord",
+                "Le bloc de l'Est",
+                "Le bloc du Nord",
+                "Le bloc de l'Ouest",
+                "Histoire");
         question17.save();
 
         Question question18 = new Question(
-                "Quelle est la capitale de l'Italie ?",
-                "Tokyo",
-                "Venise",
-                "Naples",
-                "Rome",
-                "Histoire-Géographie");
+                "Comment s'appelle la période de fortes tensions géopolitiques entre les États-Unis et l'URSS ?",
+                "La première guerre mondiale",
+                "La deuxième guerre mondiale",
+                "La guerre du Golf",
+                "La guerre froide",
+                "Histoire");
         question18.save();
 
         Question question19 = new Question(
-                "What is your name ?",
-                "Mi name ",
-                "My names ",
-                "Your name ",
-                "My name is ",
-                "Anglais");
+                "Comment s'appelle la période de fortes tensions géopolitiques entre les États-Unis et l'URSS ?",
+                "La première guerre mondiale",
+                "La deuxième guerre mondiale",
+                "La guerre du Golf",
+                "La guerre froide",
+                "Histoire");
         question19.save();
 
         Question question20 = new Question(
-                "Comment s'écrit gaz au pluriel ?",
-                "Gazes",
-                "Gazx",
-                "Gazs",
-                "Gaz",
-                "Français");
+                "Quel événement marque le début de la fin de la guerre froide ?",
+                "Le premier homme sur la Lune en 1969",
+                "La crise de Cuba en 1962",
+                "La fin de la guerre du Vietnam en 1975",
+                "La chute du mur de Berlin en 1989",
+                "Histoire");
         question20.save();
+
+        Question question21 = new Question(
+                "Quelle est l'année de la fin de la guerre froide ?",
+                "1945",
+                "1979",
+                "1989",
+                "1991",
+                "Histoire");
+        question21.save();
+
+        Question question22 = new Question(
+                "En quelle année a eu lieu la chute de l'URSS ?",
+                "1945",
+                "1960",
+                "1979",
+                "1991",
+                "Histoire");
+        question21.save();
+
     }
 
     public void nextQuestion(View view) {
 
-        // SI AUCUNE REPONSE N'EST DONNEE
+        // Si aucune réponse n'est donnée
         if(!choixEffectue){
             Toast.makeText(this, "Tu dois choisir une réponse à cette question !", Toast.LENGTH_SHORT).show();
         }
 
         else{
             choixEffectue = false;
-            // REMISE A ZERO DES BOUTONS
-            for (int k =0 ; k<listeBouton.size(); k++){
+            // Remise à zéro des boutons
+            for (int k = 0 ; k < listeBouton.size(); k++){
                 listeBouton.get(k).getBackground().clearColorFilter();
                 listeBouton.get(k).setClickable(true);
             }
 
-            // On passe a la question suivante
+            // On passe à la question suivante
             if (nQuestion <11){
                 listeBouton.clear();
-                TextView text = findViewById(R.id.textViewQuestion);
+                TextView text = (TextView) findViewById(R.id.textViewQuestion);
                 text.setText(listeQuestion.get(intList.get(nQuestion-1)).getIntitule());
-                Button boutonR1 = findViewById(R.id.button1);
-                Button boutonR2 = findViewById(R.id.button2);
-                Button boutonR3 = findViewById(R.id.button3);
-                Button boutonR4 = findViewById(R.id.button4);
-                TextView numeroQuestion = findViewById(R.id.textViewQuestionNumber);
+                Button boutonR1 = (Button) findViewById(R.id.button1);
+                Button boutonR2 = (Button) findViewById(R.id.button2);
+                Button boutonR3 = (Button) findViewById(R.id.button3);
+                Button boutonR4 = (Button) findViewById(R.id.button4);
+                TextView numeroQuestion = (TextView) findViewById(R.id.textViewQuestionNumber);
                 numeroQuestion.setText(nQuestion + "/10");
-                ProgressBar progressBar = findViewById(R.id.progressBar);
+                ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
                 progressBar.setProgress(nQuestion);
 
                 listeBouton.add(boutonR1);
@@ -387,7 +391,7 @@ public class QuizActivity extends AppCompatActivity {
                     }
                 }
 
-                if(nQuestion == 10){
+                if(nQuestion == 20){
                     Button boutonContinuer = findViewById(R.id.buttonNext);
                     boutonContinuer.setText("Résultats");
                 }
