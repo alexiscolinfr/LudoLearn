@@ -16,9 +16,7 @@ import java.util.Random;
 
 public class MathsActivity extends AppCompatActivity {
 
-    public static final String NBERREURS = "nbErreurs";
     public int reponse1,reponse2,reponse3,reponse4,reponse5;
-    public boolean champsComplets = false;   // UTILISE POUR EVITER L'APPUI SUR LE BOUTON AVEC DES CHAMPS SANS REPONSE
     Boolean verificationReponse = false;    // VERIFIE QUE LA CORRECTION A ETE AFFICHEE AVANT DE POUVOIR VOIR SON RESULTAT
     public String choixCalculs = ""; // CATEGORIE DE CALCUL CHOISIE
     public int nbErreurs = 0;

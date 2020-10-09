@@ -14,7 +14,7 @@ public class QuizResultsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_results);
 
-        TextView textScore = (TextView) findViewById(R.id.textViewErreursAnglais);
+        TextView textScore = findViewById(R.id.textViewErreursAnglais);
         int nbQuestions = QuizActivity.nbQuestionsAnglais;
         int nbErreurs = nbQuestions - QuizActivity.nbErreursAnglais;
         textScore.setText(textScore.getText() + " : " + Integer.toString(nbErreurs) +"/"+ Integer.toString(nbQuestions));

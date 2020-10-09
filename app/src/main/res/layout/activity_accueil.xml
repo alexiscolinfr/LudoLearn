@@ -79,7 +79,4 @@
             app:srcCompat="@drawable/volume_up" />
 
     </LinearLayout>
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

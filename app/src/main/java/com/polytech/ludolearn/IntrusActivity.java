@@ -23,8 +23,8 @@ public class IntrusActivity extends AppCompatActivity {
 
     public int nQuestion=1;
     public List<Question> listeQuestion;
-    public ArrayList<Button> listeBouton = new ArrayList<Button>();
-    public ArrayList<Integer> intList = new ArrayList<Integer>();
+    public ArrayList<Button> listeBouton = new ArrayList<>();
+    public ArrayList<Integer> intList = new ArrayList<>();
     public int boutonVrai;
     public static int nbErreurs;
     public boolean choixEffectue;
@@ -51,14 +51,14 @@ public class IntrusActivity extends AppCompatActivity {
         //Affichage de ma question
         listeQuestion = Question.listAll(Question.class);
 
-        TextView numeroQuestion = (TextView) findViewById(R.id.textViewNumeroQuestion);
+        TextView numeroQuestion = findViewById(R.id.textViewNumeroQuestion);
         numeroQuestion.setText(nQuestion + "/10");
-        TextView text = (TextView) findViewById(R.id.textViewQuestion);
+        TextView text = findViewById(R.id.textViewQuestion);
         text.setText(listeQuestion.get(intList.get(nQuestion-1)).getIntitule());
-        Button boutonR1 = (Button) findViewById(R.id.bouton1);
-        Button boutonR2 = (Button) findViewById(R.id.bouton2);
-        Button boutonR3 = (Button) findViewById(R.id.bouton3);
-        Button boutonR4 = (Button) findViewById(R.id.bouton4);
+        Button boutonR1 = findViewById(R.id.bouton1);
+        Button boutonR2 = findViewById(R.id.bouton2);
+        Button boutonR3 = findViewById(R.id.bouton3);
+        Button boutonR4 = findViewById(R.id.bouton4);
 
         listeBouton.add(boutonR1);
         listeBouton.add(boutonR2);
@@ -79,7 +79,7 @@ public class IntrusActivity extends AppCompatActivity {
             }
         }
 
-        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        ProgressBar progressBar = findViewById(R.id.progressBar);
         progressBar.setProgress(nQuestion);
     }
 
@@ -192,15 +192,15 @@ public class IntrusActivity extends AppCompatActivity {
             // On passe a la question suivante
             if (nQuestion <11){
                 listeBouton.clear();
-                TextView text = (TextView) findViewById(R.id.textViewQuestion);
+                TextView text = findViewById(R.id.textViewQuestion);
                 text.setText(listeQuestion.get(intList.get(nQuestion-1)).getIntitule());
-                Button boutonR1 = (Button) findViewById(R.id.bouton1);
-                Button boutonR2 = (Button) findViewById(R.id.bouton2);
-                Button boutonR3 = (Button) findViewById(R.id.bouton3);
-                Button boutonR4 = (Button) findViewById(R.id.bouton4);
-                TextView numeroQuestion = (TextView) findViewById(R.id.textViewNumeroQuestion);
+                Button boutonR1 = findViewById(R.id.bouton1);
+                Button boutonR2 = findViewById(R.id.bouton2);
+                Button boutonR3 = findViewById(R.id.bouton3);
+                Button boutonR4 = findViewById(R.id.bouton4);
+                TextView numeroQuestion = findViewById(R.id.textViewNumeroQuestion);
                 numeroQuestion.setText(nQuestion + "/10");
-                ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+                ProgressBar progressBar = findViewById(R.id.progressBar);
                 progressBar.setProgress(nQuestion);
 
                 listeBouton.add(boutonR1);

@@ -14,7 +14,7 @@ public class IntrusResultsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intrus_results);
 
-        TextView textScore = (TextView) findViewById(R.id.nbErreurs);
+        TextView textScore = findViewById(R.id.nbErreurs);
         int nbErreurs = IntrusActivity.nbErreurs;
         int resultat = 10-nbErreurs;
         textScore.setText(textScore.getText() + Integer.toString(resultat) +"/10");

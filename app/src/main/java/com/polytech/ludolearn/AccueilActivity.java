@@ -9,8 +9,6 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.polytech.ludolearn.database.Profil;
-
 public class AccueilActivity extends AppCompatActivity {
 
     @Override
@@ -39,9 +37,9 @@ public class AccueilActivity extends AppCompatActivity {
     }
 
     public void onSoundClicked(View view){
-        ImageButton img = (ImageButton) findViewById(R.id.sound_button);
+        ImageButton img = findViewById(R.id.sound_button);
 
-        if (isMyServiceRunning(BackgroundSoundService.class)) {
+        if (isMyServiceRunning()) {
             stopService(new Intent(this, BackgroundSoundService.class));
             img.setImageResource(R.drawable.volume_mute);
         } else {
@@ -50,14 +48,14 @@ public class AccueilActivity extends AppCompatActivity {
         }
     }
 
-    private boolean isMyServiceRunning(Class<?> serviceClass) {
+    private boolean isMyServiceRunning() {
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        assert manager != null;
         for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
-            if (serviceClass.getName().equals(service.service.getClassName())) {
+            if (BackgroundSoundService.class.getName().equals(service.service.getClassName())) {
                 return true;
             }
         }
         return false;
     }
-
 }

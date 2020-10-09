@@ -22,7 +22,7 @@ public class MathsResultsActivity extends AppCompatActivity {
 
     private void afficherResultats() {
         choixCalcul = getIntent().getStringExtra("choixCalculs");
-        TextView textCategorie = (TextView) findViewById(R.id.nomTypeCalcul);
+        TextView textCategorie = findViewById(R.id.nomTypeCalcul);
         switch(choixCalcul){
             case "division":
                 textCategorie.setText("Catégorie : Division");
@@ -41,7 +41,7 @@ public class MathsResultsActivity extends AppCompatActivity {
                 break;
         }
 
-        TextView textErreur = (TextView) findViewById(R.id.nbErreurs);
+        TextView textErreur = findViewById(R.id.nbErreurs);
         textErreur.setText(Integer.toString(nbErreurs) + " erreurs");
 
     }

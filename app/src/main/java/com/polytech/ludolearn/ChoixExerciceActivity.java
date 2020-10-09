@@ -15,8 +15,8 @@ public class ChoixExerciceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choix_exercice);
 
-        TextView text = (TextView) findViewById(R.id.textViewName);
-        ImageView img = (ImageView) findViewById(R.id.imageViewProfilePicture);
+        TextView text = findViewById(R.id.textViewName);
+        ImageView img = findViewById(R.id.imageViewProfilePicture);
 
         text.setText(text.getText() + " " + ConnexionActivity.nomUser + " !");
 

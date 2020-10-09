@@ -25,8 +25,8 @@ public class QuizActivity extends AppCompatActivity {
     public static int nbErreursFrancais, nbErreursAnglais, nbErreursSport, nbErreursHistoireGeo,  nbErreursArtsPlastiques, nbErreursSciences, nbErreursMaths;
     public int nQuestion=1;
     public List<Question> listeQuestion;
-    public ArrayList<Button> listeBouton = new ArrayList<Button>();
-    public ArrayList<Integer> intList = new ArrayList<Integer>();
+    public ArrayList<Button> listeBouton = new ArrayList<>();
+    public ArrayList<Integer> intList = new ArrayList<>();
     public int boutonVrai;
     public boolean choixEffectue;
 
@@ -64,14 +64,14 @@ public class QuizActivity extends AppCompatActivity {
         //Affichage de ma question
         listeQuestion = Question.listAll(Question.class);
 
-        TextView numeroQuestion = (TextView) findViewById(R.id.textViewQuestionNumber);
+        TextView numeroQuestion = findViewById(R.id.textViewQuestionNumber);
         numeroQuestion.setText(nQuestion + "/10");
-        TextView text = (TextView) findViewById(R.id.textViewQuestion);
+        TextView text = findViewById(R.id.textViewQuestion);
         text.setText(listeQuestion.get(intList.get(nQuestion-1)).getIntitule());
-        Button boutonR1 = (Button) findViewById(R.id.button1);
-        Button boutonR2 = (Button) findViewById(R.id.button2);
-        Button boutonR3 = (Button) findViewById(R.id.button3);
-        Button boutonR4 = (Button) findViewById(R.id.button4);
+        Button boutonR1 = findViewById(R.id.button1);
+        Button boutonR2 = findViewById(R.id.button2);
+        Button boutonR3 = findViewById(R.id.button3);
+        Button boutonR4 = findViewById(R.id.button4);
 
         listeBouton.add(boutonR1);
         listeBouton.add(boutonR2);
@@ -92,7 +92,7 @@ public class QuizActivity extends AppCompatActivity {
             }
         }
 
-        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        ProgressBar progressBar = findViewById(R.id.progressBar);
         progressBar.setProgress(nQuestion);
     }
 
@@ -101,41 +101,49 @@ public class QuizActivity extends AppCompatActivity {
     public void validate(View view) {
 
         //Gestion des erreurs
-        if (listeQuestion.get(intList.get(nQuestion-1)).getTag().equals("Français")){
-            if (view.getId() != boutonVrai){
-                nbErreursFrancais++;
-            }
-            nbQuestionsFrancais++;
-        } else if (listeQuestion.get(intList.get(nQuestion-1)).getTag().equals("Anglais")){
-            if (view.getId() != boutonVrai){
-                nbErreursAnglais++;
-            }
-            nbQuestionsAnglais++;
-        } else if (listeQuestion.get(intList.get(nQuestion-1)).getTag().equals("Sport")){
-            if (view.getId() != boutonVrai){
-                nbErreursSport++;
-            }
-            nbQuestionsSport++;
-        } else if (listeQuestion.get(intList.get(nQuestion-1)).getTag().equals("Histoire-Géographie")){
-            if (view.getId() != boutonVrai){
-                nbErreursHistoireGeo++;
-            }
-            nbQuestionsHistoireGeo++;
-        } else if (listeQuestion.get(intList.get(nQuestion-1)).getTag().equals("Arts-plastiques")){
-            if (view.getId() != boutonVrai){
-                nbErreursArtsPlastiques++;
-            }
-            nbQuestionsArtsPlastiques++;
-        } else if (listeQuestion.get(intList.get(nQuestion-1)).getTag().equals("Sciences")){
-            if (view.getId() != boutonVrai){
-                nbErreursSciences++;
-            }
-            nbQuestionsSciences++;
-        } else if (listeQuestion.get(intList.get(nQuestion-1)).getTag().equals("Mathématiques")){
-            if (view.getId() != boutonVrai){
-                nbErreursMaths++;
-            }
-            nbQuestionsMaths++;
+        switch (listeQuestion.get(intList.get(nQuestion - 1)).getTag()) {
+            case "Français":
+                if (view.getId() != boutonVrai) {
+                    nbErreursFrancais++;
+                }
+                nbQuestionsFrancais++;
+                break;
+            case "Anglais":
+                if (view.getId() != boutonVrai) {
+                    nbErreursAnglais++;
+                }
+                nbQuestionsAnglais++;
+                break;
+            case "Sport":
+                if (view.getId() != boutonVrai) {
+                    nbErreursSport++;
+                }
+                nbQuestionsSport++;
+                break;
+            case "Histoire-Géographie":
+                if (view.getId() != boutonVrai) {
+                    nbErreursHistoireGeo++;
+                }
+                nbQuestionsHistoireGeo++;
+                break;
+            case "Arts-plastiques":
+                if (view.getId() != boutonVrai) {
+                    nbErreursArtsPlastiques++;
+                }
+                nbQuestionsArtsPlastiques++;
+                break;
+            case "Sciences":
+                if (view.getId() != boutonVrai) {
+                    nbErreursSciences++;
+                }
+                nbQuestionsSciences++;
+                break;
+            case "Mathématiques":
+                if (view.getId() != boutonVrai) {
+                    nbErreursMaths++;
+                }
+                nbQuestionsMaths++;
+                break;
         }
         nQuestion++;
 
@@ -349,15 +357,15 @@ public class QuizActivity extends AppCompatActivity {
             // On passe a la question suivante
             if (nQuestion <11){
                 listeBouton.clear();
-                TextView text = (TextView) findViewById(R.id.textViewQuestion);
+                TextView text = findViewById(R.id.textViewQuestion);
                 text.setText(listeQuestion.get(intList.get(nQuestion-1)).getIntitule());
-                Button boutonR1 = (Button) findViewById(R.id.button1);
-                Button boutonR2 = (Button) findViewById(R.id.button2);
-                Button boutonR3 = (Button) findViewById(R.id.button3);
-                Button boutonR4 = (Button) findViewById(R.id.button4);
-                TextView numeroQuestion = (TextView) findViewById(R.id.textViewQuestionNumber);
+                Button boutonR1 = findViewById(R.id.button1);
+                Button boutonR2 = findViewById(R.id.button2);
+                Button boutonR3 = findViewById(R.id.button3);
+                Button boutonR4 = findViewById(R.id.button4);
+                TextView numeroQuestion = findViewById(R.id.textViewQuestionNumber);
                 numeroQuestion.setText(nQuestion + "/10");
-                ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+                ProgressBar progressBar = findViewById(R.id.progressBar);
                 progressBar.setProgress(nQuestion);
 
                 listeBouton.add(boutonR1);

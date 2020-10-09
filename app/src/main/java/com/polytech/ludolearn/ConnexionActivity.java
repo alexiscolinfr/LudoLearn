@@ -29,10 +29,10 @@ public class ConnexionActivity extends AppCompatActivity {
 
     public void signIn(View view){
 
-        RadioButton buttonStudent = (RadioButton) findViewById(R.id.radioButtonStudent);
-        RadioButton buttonTeacher = (RadioButton) findViewById(R.id.radioButtonTeacher);
-        EditText mail = (EditText) findViewById(R.id.editTextEmail);
-        EditText mdp = (EditText) findViewById(R.id.editTextPassword);
+        RadioButton buttonStudent = findViewById(R.id.radioButtonStudent);
+        RadioButton buttonTeacher = findViewById(R.id.radioButtonTeacher);
+        EditText mail = findViewById(R.id.editTextEmail);
+        EditText mdp = findViewById(R.id.editTextPassword);
 
         String valMail, valMdp;
 

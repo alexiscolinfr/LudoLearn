@@ -45,7 +45,7 @@ public class PenduActivity extends AppCompatActivity {
 
     // CHOISI UN MOT AU HASARD DANS LA CATEGORIE CHOISIE
     public void randMot(int buttonId){
-        motPendu = (TextView) findViewById(R.id.motADeviner);
+        motPendu = findViewById(R.id.motADeviner);
         switch(buttonId){
             case R.id.categorieHistoire :
                 listeMotUtilisee = listeMotHistoire;
@@ -125,10 +125,10 @@ public class PenduActivity extends AppCompatActivity {
             else {
                 b.getBackground().setColorFilter(ContextCompat.getColor(this, R.color.incorrect), PorterDuff.Mode.MULTIPLY);
                 b.setClickable(false);
-                TextView erreurs = (TextView) findViewById(R.id.textCoupsRestants);
+                TextView erreurs = findViewById(R.id.textCoupsRestants);
                 nbErreurs += 1;
                 erreurs.setText("Erreur(s): " + nbErreurs);
-                ImageView imagePendu = (ImageView) findViewById(R.id.imagePendu);
+                ImageView imagePendu = findViewById(R.id.imagePendu);
                 switch (nbErreurs) {
                     case 1:
                         imagePendu.setImageResource(R.drawable.pendu1);
@@ -164,7 +164,7 @@ public class PenduActivity extends AppCompatActivity {
                         imagePendu.setImageResource(R.drawable.game_over);
                         motPendu.setText(motEntier);
 
-                        TextView definition = (TextView) findViewById(R.id.textDefinition);
+                        TextView definition = findViewById(R.id.textDefinition);
                         definition.setText(listeMotUtilisee.get(motEntier));
 
                         finPartie();
@@ -208,7 +208,7 @@ public class PenduActivity extends AppCompatActivity {
         Button b = (Button) view;
         setContentView(R.layout.activity_pendu);
         randMot(view.getId());
-        TextView textCategorie = (TextView) findViewById(R.id.textCategorie);
+        TextView textCategorie = findViewById(R.id.textCategorie);
         textCategorie.setText("Catégorie: " + b.getText().toString());
         activityCategoriePendu = false;
     }

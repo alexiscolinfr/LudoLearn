@@ -14,13 +14,13 @@ public class ChoixTableMultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choix_table_mult);
 
-        NumberPicker choixNum = (NumberPicker) findViewById(R.id.table);
+        NumberPicker choixNum = findViewById(R.id.table);
         choixNum.setMinValue(0);
         choixNum.setMaxValue(10);
     }
 
     public void validate(View view){
-        NumberPicker choixNum = (NumberPicker) findViewById(R.id.table);
+        NumberPicker choixNum = findViewById(R.id.table);
         Intent intent = new Intent(this,MathsActivity.class);
         intent.putExtra("choixCalculs", "multiplication");
         intent.putExtra("table", choixNum.getValue());
