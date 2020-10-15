@@ -21,7 +21,7 @@ import java.util.Random;
 
 public class IntrusActivity extends AppCompatActivity {
 
-    public int nQuestion=1;
+    public int nQuestion = 1;
     public List<Question> listeQuestion;
     public ArrayList<Button> listeBouton = new ArrayList<>();
     public ArrayList<Integer> intList = new ArrayList<>();
@@ -38,23 +38,23 @@ public class IntrusActivity extends AppCompatActivity {
 
         creerQuestions();
 
-        // Générer ma liste aléatoire de chiffres sans doublons
-        int i=0;
-        while (i<10){
+        // Génère une liste aléatoire de chiffres sans doublons
+        int i = 0;
+        while (i < 10) {
             int val = new Random().nextInt(10);
-            if (!intList.contains(val)){
+            if (!intList.contains(val)) {
                 intList.add(val);
                 i++;
             }
         }
 
-        //Affichage de ma question
+        // Affichage de la question
         listeQuestion = Question.listAll(Question.class);
 
         TextView numeroQuestion = findViewById(R.id.textViewNumeroQuestion);
         numeroQuestion.setText(nQuestion + "/10");
         TextView text = findViewById(R.id.textViewQuestion);
-        text.setText(listeQuestion.get(intList.get(nQuestion-1)).getIntitule());
+        text.setText(listeQuestion.get(intList.get(nQuestion - 1)).getIntitule());
         Button boutonR1 = findViewById(R.id.bouton1);
         Button boutonR2 = findViewById(R.id.bouton2);
         Button boutonR3 = findViewById(R.id.bouton3);
@@ -66,16 +66,16 @@ public class IntrusActivity extends AppCompatActivity {
         listeBouton.add(boutonR4);
 
         Collections.shuffle(listeBouton);
-        for (int k =0 ; k<listeBouton.size(); k++){
-            if (k==0){
-                listeBouton.get(k).setText(listeQuestion.get(intList.get(nQuestion-1)).getReponseFausse1());
-            } else if (k==1){
-                listeBouton.get(k).setText(listeQuestion.get(intList.get(nQuestion-1)).getReponseFausse2());
-            } else if (k==2){
-                listeBouton.get(k).setText(listeQuestion.get(intList.get(nQuestion-1)).getReponseFausse3());
+        for (int k = 0 ; k < listeBouton.size() ; k++) {
+            if (k == 0) {
+                listeBouton.get(k).setText(listeQuestion.get(intList.get(nQuestion - 1)).getReponseFausse1());
+            } else if (k == 1) {
+                listeBouton.get(k).setText(listeQuestion.get(intList.get(nQuestion - 1)).getReponseFausse2());
+            } else if (k == 2) {
+                listeBouton.get(k).setText(listeQuestion.get(intList.get(nQuestion - 1)).getReponseFausse3());
             } else {
-                listeBouton.get(k).setText(listeQuestion.get(intList.get(nQuestion-1)).getReponseVrai());
-                boutonVrai=listeBouton.get(k).getId();
+                listeBouton.get(k).setText(listeQuestion.get(intList.get(nQuestion - 1)).getReponseVrai());
+                boutonVrai = listeBouton.get(k).getId();
             }
         }
 
@@ -84,116 +84,126 @@ public class IntrusActivity extends AppCompatActivity {
     }
 
     private void creerQuestions() {
-        Question question = new Question(
+        Question question = new Question (
                 "Comiques",
                 "Coluche",
                 "Fernandel",
                 "Dany Boon",
                 "Raymond Devos",
-                "Intrus");
+                "Intrus"
+        );
         question.save();
 
-        Question question2 = new Question(
+        Question question2 = new Question (
                 "Gastronomie",
                 "Cassoulet",
                 "Fèves au lard",
                 "Chili con carne",
                 "Couscous",
-                "Intrus");
+                "Intrus"
+        );
         question2.save();
 
-        Question question3 = new Question(
+        Question question3 = new Question (
                 "Prénoms",
                 "Camille",
                 "Dominique",
                 "Claude",
                 "Bernard",
-                "Intrus");
+                "Intrus"
+        );
         question3.save();
 
-        Question question4 = new Question(
+        Question question4 = new Question (
                 "Informatique",
                 "Disque dur",
                 "Clé USB",
                 "Cd-rom",
                 "Carte mère",
-                "Intrus");
+                "Intrus"
+        );
         question4.save();
 
-        Question question5 = new Question(
+        Question question5 = new Question (
                 "Sportifs",
                 "Vincent Moscato",
                 "Éric Cantona",
                 "Joël Cantona",
                 "Zinédine Zidane",
-                "Intrus");
+                "Intrus"
+        );
         question5.save();
 
-        Question question6 = new Question(
+        Question question6 = new Question (
                 "Italie",
                 "Florence",
                 "Turin",
                 "Milan",
                 "Capri",
-                "Intrus");
+                "Intrus"
+        );
         question6.save();
 
-        Question question7 = new Question(
+        Question question7 = new Question (
                 "Fruits et légumes",
                 "Pomme",
                 "Kiwi",
                 "Tomate",
                 "Poivron",
-                "Intrus");
+                "Intrus"
+        );
         question7.save();
 
-        Question question8 = new Question(
+        Question question8 = new Question (
                 "Flics de choc",
                 "G. I. G. N.",
                 "R. A. I. D.",
                 "G. I. P. N.",
                 "B. R. I. G. A. D.",
-                "Intrus");
+                "Intrus"
+        );
         question8.save();
 
-        Question question9 = new Question(
+        Question question9 = new Question (
                 "Jeux télévisés",
                 "Slam",
                 "Mot de passe",
                 "Motus",
                 "Les 12 coups de midi",
-                "Intrus");
+                "Intrus"
+        );
         question9.save();
 
-        Question question10 = new Question(
+        Question question10 = new Question (
                 "Séries policières françaises",
                 "Les Cordier, juge et flic",
                 "Navarro",
                 "Julie Lescaut",
                 "Marc Éliott",
-                "Intrus");
+                "Intrus"
+        );
         question10.save();
     }
 
     public void nextIntruder(View view) {
-        // SI AUCUNE REPONSE N'EST DONNEE
-        if(!choixEffectue){
+        // Si aucune réponse n'est donnée
+        if (!choixEffectue) {
             Toast.makeText(this, "Tu dois choisir une réponse à cette question !", Toast.LENGTH_SHORT).show();
         }
 
-        else{
+        else {
             choixEffectue = false;
-            // REMISE A ZERO DES BOUTONS
-            for (int k =0 ; k<listeBouton.size(); k++){
+            // Remise à zéro des boutons
+            for (int k = 0 ; k < listeBouton.size() ; k++) {
                 listeBouton.get(k).getBackground().clearColorFilter();
                 listeBouton.get(k).setClickable(true);
             }
 
-            // On passe a la question suivante
-            if (nQuestion <11){
+            // On passe à la question suivante
+            if (nQuestion < 11) {
                 listeBouton.clear();
                 TextView text = findViewById(R.id.textViewQuestion);
-                text.setText(listeQuestion.get(intList.get(nQuestion-1)).getIntitule());
+                text.setText(listeQuestion.get(intList.get(nQuestion - 1)).getIntitule());
                 Button boutonR1 = findViewById(R.id.bouton1);
                 Button boutonR2 = findViewById(R.id.bouton2);
                 Button boutonR3 = findViewById(R.id.bouton3);
@@ -209,20 +219,20 @@ public class IntrusActivity extends AppCompatActivity {
                 listeBouton.add(boutonR4);
 
                 Collections.shuffle(listeBouton);
-                for (int k =0 ; k<listeBouton.size(); k++){
-                    if (k==0){
-                        listeBouton.get(k).setText(listeQuestion.get(intList.get(nQuestion-1)).getReponseFausse1());
-                    } else if (k==1){
-                        listeBouton.get(k).setText(listeQuestion.get(intList.get(nQuestion-1)).getReponseFausse2());
-                    } else if (k==2){
-                        listeBouton.get(k).setText(listeQuestion.get(intList.get(nQuestion-1)).getReponseFausse3());
+                for (int k = 0 ; k < listeBouton.size() ; k++) {
+                    if (k == 0) {
+                        listeBouton.get(k).setText(listeQuestion.get(intList.get(nQuestion - 1)).getReponseFausse1());
+                    } else if (k == 1) {
+                        listeBouton.get(k).setText(listeQuestion.get(intList.get(nQuestion - 1)).getReponseFausse2());
+                    } else if (k == 2) {
+                        listeBouton.get(k).setText(listeQuestion.get(intList.get(nQuestion - 1)).getReponseFausse3());
                     } else {
-                        listeBouton.get(k).setText(listeQuestion.get(intList.get(nQuestion-1)).getReponseVrai());
-                        boutonVrai=listeBouton.get(k).getId();
+                        listeBouton.get(k).setText(listeQuestion.get(intList.get(nQuestion - 1)).getReponseVrai());
+                        boutonVrai = listeBouton.get(k).getId();
                     }
                 }
                 System.out.print("ICI");
-                if(nQuestion == 10){
+                if (nQuestion == 10) {
                     Button boutonContinuer = findViewById(R.id.intrus_boutonContinuer);
                     boutonContinuer.setText("Résultats");
                 }
@@ -235,17 +245,19 @@ public class IntrusActivity extends AppCompatActivity {
         }
     }
     public void validate(View view) {
-        //Gestion des erreurs
-        if (view.getId() != boutonVrai){
+        // Gestion des erreurs
+        if (view.getId() != boutonVrai) {
             nbErreurs++;
         }
         nQuestion++;
 
-        // AFFICHAGE DE LA BONNE REPONSE
-        for (int k =0 ; k<listeBouton.size(); k++){
-            if(listeBouton.get(k).getId() == boutonVrai) listeBouton.get(k).getBackground().setColorFilter(ContextCompat.getColor(this, R.color.correct), PorterDuff.Mode.MULTIPLY);
+        // Affichage de la bonne réponse
+        for (int k = 0 ; k < listeBouton.size() ; k++) {
+            if (listeBouton.get(k).getId() == boutonVrai) listeBouton.get(k).getBackground()
+                    .setColorFilter(ContextCompat.getColor(this, R.color.correct), PorterDuff.Mode.MULTIPLY);
 
-            else listeBouton.get(k).getBackground().setColorFilter(ContextCompat.getColor(this, R.color.incorrect), PorterDuff.Mode.MULTIPLY);
+            else listeBouton.get(k).getBackground()
+                    .setColorFilter(ContextCompat.getColor(this, R.color.incorrect), PorterDuff.Mode.MULTIPLY);
             listeBouton.get(k).setClickable(false);
         }
         choixEffectue = true;

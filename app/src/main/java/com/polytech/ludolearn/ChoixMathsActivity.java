@@ -14,19 +14,19 @@ public class ChoixMathsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_choix_maths);
     }
 
-    public void addition(View view){
+    public void addition(View view) {
         Intent intent = new Intent(this, MathsActivity.class);
         intent.putExtra("choixCalculs", "addition");
         startActivity(intent);
     }
 
-    public void soustraction(View view){
+    public void soustraction(View view) {
         Intent intent = new Intent(this, MathsActivity.class);
         intent.putExtra("choixCalculs", "soustraction");
         startActivity(intent);
     }
 
-    public void multiplication(View view){
+    public void multiplication(View view) {
         Intent intent = new Intent(this, ChoixTableMultActivity.class);
         startActivity(intent);
     }

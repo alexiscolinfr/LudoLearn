@@ -11,13 +11,14 @@ public class Question extends SugarRecord {
 
     public Question(){}
 
-    public Question(String intitule, String reponseFausse1, String reponseFausse2, String reponseFausse3, String reponseVrai, String tag){
-        this.intitule=intitule;
-        this.reponseFausse1=reponseFausse1;
-        this.reponseFausse2=reponseFausse2;
-        this.reponseFausse3=reponseFausse3;
-        this.reponseVrai=reponseVrai;
-        this.tag=tag;
+    public Question(String intitule, String reponseFausse1, String reponseFausse2, String reponseFausse3,
+                    String reponseVrai, String tag) {
+        this.intitule = intitule;
+        this.reponseFausse1 = reponseFausse1;
+        this.reponseFausse2 = reponseFausse2;
+        this.reponseFausse3 = reponseFausse3;
+        this.reponseVrai = reponseVrai;
+        this.tag = tag;
     }
 
     public String getIntitule() {
@@ -60,8 +61,8 @@ public class Question extends SugarRecord {
         this.reponseFausse3 = reponseFausse3;
     }
 
-    public void setReponseVrai(String reponseVrai) {
-        this.reponseVrai = reponseVrai;
+    public void setReponseVrai(String reponseVraie) {
+        this.reponseVrai = reponseVraie;
     }
 
     public void setTag(String tag) {

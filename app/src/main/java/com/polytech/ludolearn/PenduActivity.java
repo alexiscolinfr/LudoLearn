@@ -43,10 +43,10 @@ public class PenduActivity extends AppCompatActivity {
         initListeMots();
     }
 
-    // CHOISI UN MOT AU HASARD DANS LA CATEGORIE CHOISIE
-    public void randMot(int buttonId){
+    // Choisi un mot au hasard dans la catégorie choisie
+    public void randMot(int buttonId) {
         motPendu = findViewById(R.id.motADeviner);
-        switch(buttonId){
+        switch(buttonId) {
             case R.id.categorieHistoire :
                 listeMotUtilisee = listeMotHistoire;
                 break;
@@ -73,19 +73,19 @@ public class PenduActivity extends AppCompatActivity {
                 break;
         }
 
-        // RANDOMISATION DU MOT DU PENDU
+        // Randomisation du mot du Pendu
         Object[] motsPossibles = listeMotUtilisee.keySet().toArray();
         Object cle = motsPossibles[new Random().nextInt(motsPossibles.length)];
         motEntier = cle.toString();
 
-        // CREATION DES VARIABLES A UTILISER POUR LE PENDU
-        for(int i = 0; i < motEntier.length(); i ++){
+        // Création des variables à utiliser pour le Pendu
+        for (int i = 0 ; i < motEntier.length() ; i++) {
             motDecoupeClair += motEntier.charAt(i) + "-";
         }
-        motDecoupeClair = motDecoupeClair.substring(0, motDecoupeClair.length() - 1); // ON ENLEVE LE DERNIER CARACTERE "-"
+        motDecoupeClair = motDecoupeClair.substring(0, motDecoupeClair.length() - 1); // On enlève le dernier caractère "-"
 
         String separateur1 = "-";
-        for(int i = 0; i < motDecoupeClair.length(); i ++){
+        for(int i = 0 ; i < motDecoupeClair.length() ; i++) {
             if(motDecoupeClair.charAt(i) == separateur1.charAt(0)) motDecoupeCache += "-";
             else motDecoupeCache += "_";
         }
@@ -93,15 +93,15 @@ public class PenduActivity extends AppCompatActivity {
         motPendu.setText(suppSeparateur(motDecoupeCache));
     }
 
-    // VERIFIE SI LA LETTRE CLIQUEE FAIT PARTIE DU MOT A DEVINER
+    // Vérifie si la lettre choisie fait partie du mot à deviner
     public void letterVerification(View view) {
         Button b = (Button) view;
-        if(nbErreurs < 11) {
+        if (nbErreurs < 11) {
             String lettre = b.getText().toString();
 
             if (motDecoupeClair.contains(lettre)) {
                 String strMotDecoupeCacheTemp = "";
-                for (int i = 0; i < motDecoupeClair.length(); i++) {
+                for (int i = 0 ; i < motDecoupeClair.length() ; i++) {
                     if (motDecoupeClair.charAt(i) == lettre.charAt(0)) strMotDecoupeCacheTemp += motDecoupeClair.charAt(i);
                     else strMotDecoupeCacheTemp += motDecoupeCache.charAt(i);
                 }
@@ -112,9 +112,8 @@ public class PenduActivity extends AppCompatActivity {
                 b.getBackground().setColorFilter(ContextCompat.getColor(this, R.color.correct), PorterDuff.Mode.MULTIPLY);
                 motPendu.setText(suppSeparateur(motDecoupeCache));
 
-                // SI LE MOT EST TROUVE ENTIEREMENT
-                if(motDecoupeCache.equals(motDecoupeClair)){
-
+                // Si le mot est entièrement trouvé
+                if (motDecoupeCache.equals(motDecoupeClair)) {
                     TextView definition = (TextView) findViewById(R.id.textDefinition);
                     definition.setText(listeMotUtilisee.get(motEntier));
 
@@ -174,9 +173,9 @@ public class PenduActivity extends AppCompatActivity {
         }
     }
 
-    // AJOUTE LES MOTS ET DEFINITIONS AUX CATEGORIES
-    public void initListeMots(){
-        listeMotHistoire.put("NAPOLEON", "Napoléon est le premier empereur des Français (");
+    // Ajoute les mots et les définitions aux catégories
+    public void initListeMots() {
+        listeMotHistoire.put("NAPOLEON", "Napoléon est le premier empereur des Français.");
         listeMotHistoire.put("REVOLUTION", "Une révolution est un renversement brusque d’un régime politique par la force.");
         listeMotHistoire.put("PYRAMIDE", "Les pyramides d'Égypte sont les restes les plus impressionnants et les plus emblématiques de cette civilisation.");
         listeMotGeographie.put("CONTINENT", "Ce terme désigne une vaste étendue continue du sol à la surface du globe terrestre. Il y a 7 continents sur Terre.");
@@ -199,11 +198,11 @@ public class PenduActivity extends AppCompatActivity {
         listeMotAnglais.put("MARKET", "An actual or nominal place where forces of demand and supply operate, and where buyers and sellers interact.");
         listeMotMusique.put("FLUTE", "C'est un instrument de musique à vent.");
         listeMotMusique.put("VIOLON", "C'est un instrument de musique composé de 4 cordes.");
-        listeMotMusique.put("MOZART", "Wolfgang Amadeus Mozart est un compositeur de musique classique");
+        listeMotMusique.put("MOZART", "Wolfgang Amadeus Mozart est un compositeur de musique classique.");
     }
 
-    // APPELLE AU CLIC D'UN BOUTON DE CATEGORIE
-    // DEFINI LA CATEGORIE UTILISEE POUR LE PENDU
+    // Appelé lors du choix d'une catégorie par l'utilisateur
+    // Définie la catégorie utilisée pour le Pendu
     public void choixCategorie(View view) {
         Button b = (Button) view;
         setContentView(R.layout.activity_pendu);
@@ -214,51 +213,50 @@ public class PenduActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed()
-    {
+    public void onBackPressed() {
         motEntier = "";
         nbErreurs = 0;
         motDecoupeClair = "";
         motDecoupeCache = "";
 
-        if(!activityCategoriePendu){
+        if (!activityCategoriePendu) {
             setContentView(R.layout.categorie_pendu);
             activityCategoriePendu = true;
         }
-        else{
+        else {
             Intent intent = new Intent(this, ChoixExerciceActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         }
     }
 
-    public void finPartie(){
+    public void finPartie() {
         LinearLayout layout = findViewById(R.id.layout_A_F);
-        for(int i = 0; i < layout.getChildCount(); i++){
+        for (int i = 0 ; i < layout.getChildCount() ; i++) {
             layout.getChildAt(i).setClickable(false);
         }
         layout.setVisibility(View.GONE);
 
         layout = findViewById(R.id.layout_G_L);
-        for(int i = 0; i < layout.getChildCount(); i++){
+        for (int i = 0 ; i < layout.getChildCount() ; i++) {
             layout.getChildAt(i).setClickable(false);
         }
         layout.setVisibility(View.GONE);
 
         layout = findViewById(R.id.layout_M_R);
-        for(int i = 0; i < layout.getChildCount(); i++){
+        for (int i = 0 ; i < layout.getChildCount() ; i++) {
             layout.getChildAt(i).setClickable(false);
         }
         layout.setVisibility(View.GONE);
 
         layout = findViewById(R.id.layout_S_X);
-        for(int i = 0; i < layout.getChildCount(); i++){
+        for (int i = 0 ; i < layout.getChildCount() ; i++) {
             layout.getChildAt(i).setClickable(false);
         }
         layout.setVisibility(View.GONE);
 
         layout = findViewById(R.id.layout_Y_Z);
-        for(int i = 0; i < layout.getChildCount(); i++){
+        for (int i = 0 ; i < layout.getChildCount() ; i++) {
             layout.getChildAt(i).setClickable(false);
         }
         layout.setVisibility(View.GONE);
@@ -267,7 +265,7 @@ public class PenduActivity extends AppCompatActivity {
         boutonRecommencer.setVisibility(View.VISIBLE);
     }
 
-    public String suppSeparateur(String arg){
+    public String suppSeparateur(String arg) {
         String res = "";
         String separateur = "-";
         for (int i = 0; i < arg.length(); i++) {

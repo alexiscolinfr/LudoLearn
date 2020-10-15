@@ -25,22 +25,22 @@ public class ChoixExerciceActivity extends AppCompatActivity {
         }
     }
 
-    public void playMaths (View view){
+    public void playMaths (View view) {
         Intent intent = new Intent(this, ChoixMathsActivity.class);
         startActivity(intent);
     }
 
-    public void playQuiz (View view){
+    public void playQuiz (View view) {
         Intent intent = new Intent(this, QuizActivity.class);
         startActivity(intent);
     }
 
-    public void playPendu (View view){
+    public void playPendu (View view) {
         Intent intent = new Intent(this, PenduActivity.class);
         startActivity(intent);
     }
 
-    public void playIntrus (View view){
+    public void playIntrus (View view) {
         Intent intent = new Intent(this, IntrusActivity.class);
         startActivity(intent);
     }

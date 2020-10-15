@@ -19,24 +19,24 @@ public class AccueilActivity extends AppCompatActivity {
         startService(intent);
     }
 
-    public void studentSignUp(View view){
+    public void studentSignUp(View view) {
         Intent intent = new Intent(this, InscriptionActivity.class);
         intent.putExtra("isTeacher",false);
         startActivity(intent);
     }
 
-    public void teacherSignUp(View view){
+    public void teacherSignUp(View view) {
         Intent intent = new Intent(this, InscriptionActivity.class);
         intent.putExtra("isTeacher",true);
         startActivity(intent);
     }
 
-    public void signIn(View view){
+    public void signIn(View view) {
         Intent intent = new Intent(this, ConnexionActivity.class);
         startActivity(intent);
     }
 
-    public void onSoundClicked(View view){
+    public void onSoundClicked(View view) {
         ImageButton img = findViewById(R.id.sound_button);
 
         if (isMyServiceRunning()) {

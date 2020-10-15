@@ -16,11 +16,11 @@ public class IntrusResultsActivity extends AppCompatActivity {
 
         TextView textScore = findViewById(R.id.nbErreurs);
         int nbErreurs = IntrusActivity.nbErreurs;
-        int resultat = 10-nbErreurs;
-        textScore.setText(textScore.getText() + Integer.toString(resultat) +"/10");
+        int resultat = 10 - nbErreurs;
+        textScore.setText(textScore.getText() + Integer.toString(resultat) + "/10");
     }
 
-    public void exitIntrus(View view){
+    public void exitIntrus(View view) {
         Intent intent = new Intent(this, ChoixExerciceActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);

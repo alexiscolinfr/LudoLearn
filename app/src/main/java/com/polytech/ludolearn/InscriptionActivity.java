@@ -30,25 +30,26 @@ public class InscriptionActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         assert extras != null;
         isTeacher = extras.getBoolean("isTeacher");
+
         TextView titre = findViewById(R.id.textViewInscription);
-        if(isTeacher){titre.setText(R.string.teacher_sign_up);}
-        else {titre.setText(R.string.student_sign_up);}
+        if(isTeacher) { titre.setText(R.string.teacher_sign_up); }
+        else { titre.setText(R.string.student_sign_up); }
     }
 
     public void takePicture(View view){
-        Intent intent=new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+        Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent, 0);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        photo= (Bitmap) Objects.requireNonNull(data.getExtras()).get("data");
-        img= findViewById(R.id.imageView);
+        photo = (Bitmap) Objects.requireNonNull(data.getExtras()).get("data");
+        img = findViewById(R.id.imageView);
         img.setImageBitmap(photo);
     }
 
-    public void validate (View view){
+    public void validate (View view) {
         EditText nom = findViewById(R.id.editTextLastName);
         EditText prenom = findViewById(R.id.editTextFirstName);
         EditText codeClasse = findViewById(R.id.editTextCodeClasse);
@@ -66,7 +67,7 @@ public class InscriptionActivity extends AppCompatActivity {
         List<Profil> listeInscrits = Profil.listAll(Profil.class);
         ArrayList<String> listeInscritsMail = new ArrayList<>();
         ArrayList<Integer> listeCodesClasse = new ArrayList<>();
-        for (Profil profil : listeInscrits){
+        for (Profil profil : listeInscrits) {
             listeInscritsMail.add(profil.getAdresseMail());
             if(!listeCodesClasse.contains(profil.getCodeClasse()))
                 listeCodesClasse.add(profil.getCodeClasse());
@@ -74,13 +75,13 @@ public class InscriptionActivity extends AppCompatActivity {
 
         if (valNom.equals("") || valPrenom.equals("") || valCodeClasse.equals("") || valMail.equals("") || valMdp.equals("")) {
             Toast.makeText(this, "Vous devez renseigner tous les champs !", Toast.LENGTH_SHORT).show();
-        } else if (listeInscritsMail.contains(valMail)){
+        } else if (listeInscritsMail.contains(valMail)) {
                 Toast.makeText(this, "Cette adresse mail existe déjà !", Toast.LENGTH_SHORT).show();
         } else if (!isTeacher && !listeCodesClasse.contains(Integer.parseInt(valCodeClasse))) {
             Toast.makeText(this, "Le code classe est invalide !", Toast.LENGTH_SHORT).show();
         } else if (isTeacher && listeCodesClasse.contains(Integer.parseInt(valCodeClasse))) {
             Toast.makeText(this, "Le code classe est invalide !", Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             Profil profil = new Profil(valNom, valPrenom, Integer.parseInt(valCodeClasse), valMail, valMdp, isTeacher);
             profil.save();
             profil.setPhoto(photo, this);

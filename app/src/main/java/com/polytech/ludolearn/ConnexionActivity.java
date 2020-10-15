@@ -43,14 +43,14 @@ public class ConnexionActivity extends AppCompatActivity {
             Toast.makeText(this, "Vous devez renseigner tous les champs !", Toast.LENGTH_SHORT).show();
         }
         else{
-            if(buttonStudent.isChecked()) // CONNEXION D'UN ELEVE
-            {
+            // Connexion d'un élève
+            if (buttonStudent.isChecked()) {
                 List<Profil> liste = Profil.listAll(Profil.class);
 
-                for (int i = 0; i<liste.size(); i++ ) {
+                for (int i = 0 ; i < liste.size() ; i++ ) {
                     if (liste.get(i).getAdresseMail().equals(valMail) && liste.get(i).getMotDePasse().equals(valMdp)) {
-                        if(!liste.get(i).isTeacher()){
-                            nomUser = liste.get(i).getPrenom() ;
+                        if (!liste.get(i).isTeacher()) {
+                            nomUser = liste.get(i).getPrenom();
                             photo = liste.get(i).getPhoto(this);
                             Intent intent = new Intent(this, ChoixExerciceActivity.class);
                             startActivity(intent);
@@ -59,18 +59,18 @@ public class ConnexionActivity extends AppCompatActivity {
                         break;
                     }
                 }
-                if (!existe){
+                if (!existe) {
                     Toast.makeText(this, "Erreur dans la saisie des informations !", Toast.LENGTH_SHORT).show();
                 }
             }
-            else if (buttonTeacher.isChecked()) // CONNEXION D'UN PROFESSEUR
-            {
+            // Connexion d'un professeur
+            else if (buttonTeacher.isChecked()) {
                 List<Profil> liste = Profil.listAll(Profil.class);
 
-                for (int i = 0; i<liste.size(); i++ ) {
+                for (int i = 0 ; i < liste.size() ; i++ ) {
                     if (liste.get(i).getAdresseMail().equals(valMail) && liste.get(i).getMotDePasse().equals(valMdp)) {
-                        if(liste.get(i).isTeacher()){
-                            nomUser = liste.get(i).getPrenom() ;
+                        if (liste.get(i).isTeacher()) {
+                            nomUser = liste.get(i).getPrenom();
                             photo = liste.get(i).getPhoto(this);
                             Intent intent = new Intent(this, ProgressionActivity.class);
                             startActivity(intent);
@@ -79,7 +79,7 @@ public class ConnexionActivity extends AppCompatActivity {
                         break;
                     }
                 }
-                if (!existe){
+                if (!existe) {
                     Toast.makeText(this, "Erreur dans la saisie des informations !", Toast.LENGTH_SHORT).show();
                 }
             }

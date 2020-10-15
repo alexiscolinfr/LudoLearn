@@ -22,11 +22,11 @@ public class Profil extends SugarRecord {
 
     public Profil(String nom, String prenom, int codeClasse, String mail, String mdp, boolean isTeacher){
         this.isTeacher = isTeacher;
-        this.nom=nom;
-        this.prenom=prenom;
+        this.nom = nom;
+        this.prenom = prenom;
         this.codeClasse = codeClasse;
-        this.adresseMail=mail;
-        this.motDePasse=mdp;
+        this.adresseMail = mail;
+        this.motDePasse = mdp;
     }
 
     public Bitmap getPhoto(Context context) {
@@ -62,14 +62,12 @@ public class Profil extends SugarRecord {
     }
 
     public void setPhoto(Bitmap photo, Context context) {
-        try{
+        try {
             photoPath = getAdresseMail() + ".jpg";
             FileOutputStream out = context.openFileOutput(photoPath,  Context.MODE_PRIVATE);
             photo.compress(Bitmap.CompressFormat.JPEG, 90, out);
             out.close();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

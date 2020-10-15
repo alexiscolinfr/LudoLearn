@@ -19,7 +19,7 @@ public class ChoixTableMultActivity extends AppCompatActivity {
         choixNum.setMaxValue(10);
     }
 
-    public void validate(View view){
+    public void validate(View view) {
         NumberPicker choixNum = findViewById(R.id.table);
         Intent intent = new Intent(this,MathsActivity.class);
         intent.putExtra("choixCalculs", "multiplication");
