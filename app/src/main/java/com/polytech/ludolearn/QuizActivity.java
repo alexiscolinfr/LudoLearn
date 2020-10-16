@@ -535,7 +535,7 @@ public class QuizActivity extends AppCompatActivity {
         question39.save();
 
         Question question40 = new Question (
-                "L'échange gazeux se fait dans le notre corps se fait dans : ",
+                "L'échange gazeux dans notre corps se fait dans : ",
                 "La trachée artère",
                 "Les bronches",
                 "Les brochioles",

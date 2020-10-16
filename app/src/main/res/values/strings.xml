@@ -36,4 +36,5 @@
     <string name="plastic_arts">Arts Plastiques</string>
     <string name="music">Musique</string>
     <string name="results">Résultats</string>
+    <string name="clear_results">Supprimer les résultats</string>
 </resources>
