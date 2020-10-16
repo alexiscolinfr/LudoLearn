@@ -7,10 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.polytech.ludolearn.database.Profil;
+import com.polytech.ludolearn.database.Resultat;
+
 public class MathsResultsActivity extends AppCompatActivity {
 
     private String choixCalcul;
     private int nbErreurs;
+    private Profil profil = ConnexionActivity.profil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,10 @@ public class MathsResultsActivity extends AppCompatActivity {
 
         TextView textErreur = findViewById(R.id.nbErreurs);
         textErreur.setText(Integer.toString(nbErreurs) + " erreurs");
+
+        int note = 2*(5-nbErreurs);
+        Resultat resultatMaths = new Resultat(profil.getAdresseMail(),"Maths",choixCalcul,note);
+        resultatMaths.save();
     }
 
     public void restartMaths(View view) {

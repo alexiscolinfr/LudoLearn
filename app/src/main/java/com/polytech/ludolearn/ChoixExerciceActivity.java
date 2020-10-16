@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.polytech.ludolearn.database.Profil;
+
 public class ChoixExerciceActivity extends AppCompatActivity {
 
     @Override
@@ -18,10 +20,12 @@ public class ChoixExerciceActivity extends AppCompatActivity {
         TextView text = findViewById(R.id.textViewName);
         ImageView img = findViewById(R.id.imageViewProfilePicture);
 
-        text.setText(text.getText() + " " + ConnexionActivity.nomUser + " !");
+        Profil profil = ConnexionActivity.profil;
 
-        if (ConnexionActivity.photo != null) {
-            img.setImageBitmap(ConnexionActivity.photo);
+        text.setText(text.getText() + " " + profil.getPrenom() + " !");
+
+        if (profil.getPhoto(this) != null) {
+            img.setImageBitmap(profil.getPhoto(this));
         }
     }
 

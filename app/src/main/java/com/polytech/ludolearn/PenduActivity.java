@@ -13,6 +13,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.polytech.ludolearn.database.Profil;
+import com.polytech.ludolearn.database.Resultat;
+
 import java.util.HashMap;
 import java.util.Random;
 
@@ -23,6 +26,8 @@ public class PenduActivity extends AppCompatActivity {
     private String motDecoupeCache = "";
     private int nbErreurs = 0;
     private Boolean activityCategoriePendu = true;
+    private  String categorie;
+    private Profil profil = ConnexionActivity.profil;
 
     private HashMap<String, String> listeMotHistoire  = new HashMap<>();
     private HashMap<String, String> listeMotGeographie  = new HashMap<>();
@@ -49,27 +54,35 @@ public class PenduActivity extends AppCompatActivity {
         switch(buttonId) {
             case R.id.categorieHistoire :
                 listeMotUtilisee = listeMotHistoire;
+                categorie = "Histoire";
                 break;
             case R.id.categorieGeographie :
                 listeMotUtilisee = listeMotGeographie;
+                categorie = "Géographie";
                 break;
             case R.id.categorieFrancais :
                 listeMotUtilisee = listeMotFrancais;
+                categorie = "Français";
                 break;
             case R.id.categorieMaths :
                 listeMotUtilisee = listeMotMaths;
+                categorie = "Mathématiques";
                 break;
             case R.id.categorieSport :
                 listeMotUtilisee = listeMotSport;
+                categorie = "Sport";
                 break;
             case R.id.categorieArtPlastique :
                 listeMotUtilisee = listeMotArtPlastique;
+                categorie = "Arts Plastiques";
                 break;
             case R.id.categorieAnglais :
                 listeMotUtilisee = listeMotAnglais;
+                categorie = "Anglais";
                 break;
             case R.id.categorieMusique :
                 listeMotUtilisee = listeMotMusique;
+                categorie = "Musique";
                 break;
         }
 
@@ -116,7 +129,13 @@ public class PenduActivity extends AppCompatActivity {
                 if (motDecoupeCache.equals(motDecoupeClair)) {
                     TextView definition = (TextView) findViewById(R.id.textDefinition);
                     definition.setText(listeMotUtilisee.get(motEntier));
-
+                    int note;
+                    if(nbErreurs==0)
+                        note = 10;
+                    else
+                        note = 11-nbErreurs;
+                    Resultat resultatPendu = new Resultat(profil.getAdresseMail(),"Pendu",categorie,note);
+                    resultatPendu.save();
                     finPartie();
                 }
             }
@@ -165,6 +184,9 @@ public class PenduActivity extends AppCompatActivity {
 
                         TextView definition = findViewById(R.id.textDefinition);
                         definition.setText(listeMotUtilisee.get(motEntier));
+
+                        Resultat resultatPendu = new Resultat(profil.getAdresseMail(),"Pendu",categorie,0);
+                        resultatPendu.save();
 
                         finPartie();
                         break;

@@ -7,17 +7,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.polytech.ludolearn.database.Profil;
+import com.polytech.ludolearn.database.Resultat;
+
 public class IntrusResultsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intrus_results);
+        Profil profil = ConnexionActivity.profil;
 
         TextView textScore = findViewById(R.id.nbErreurs);
         int nbErreurs = IntrusActivity.nbErreurs;
-        int resultat = 10 - nbErreurs;
-        textScore.setText(textScore.getText() + Integer.toString(resultat) + "/10");
+        int note = 10 - nbErreurs;
+        textScore.setText(textScore.getText() + Integer.toString(note) + "/10");
+
+        Resultat resultatIntrus = new Resultat(profil.getAdresseMail(),"Intrus",null, note);
+        resultatIntrus.save();
     }
 
     public void exitIntrus(View view) {

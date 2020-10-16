@@ -16,9 +16,8 @@ import java.util.List;
 
 public class ConnexionActivity extends AppCompatActivity {
 
-    public boolean existe;
-    public static String nomUser = null;
-    public static Bitmap photo;
+    private boolean existe;
+    public static Profil profil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +49,7 @@ public class ConnexionActivity extends AppCompatActivity {
                 for (int i = 0 ; i < liste.size() ; i++ ) {
                     if (liste.get(i).getAdresseMail().equals(valMail) && liste.get(i).getMotDePasse().equals(valMdp)) {
                         if (!liste.get(i).isTeacher()) {
-                            nomUser = liste.get(i).getPrenom();
-                            photo = liste.get(i).getPhoto(this);
+                            profil = liste.get(i);
                             Intent intent = new Intent(this, ChoixExerciceActivity.class);
                             startActivity(intent);
                             existe = true;
@@ -70,8 +68,7 @@ public class ConnexionActivity extends AppCompatActivity {
                 for (int i = 0 ; i < liste.size() ; i++ ) {
                     if (liste.get(i).getAdresseMail().equals(valMail) && liste.get(i).getMotDePasse().equals(valMdp)) {
                         if (liste.get(i).isTeacher()) {
-                            nomUser = liste.get(i).getPrenom();
-                            photo = liste.get(i).getPhoto(this);
+                            profil = liste.get(i);
                             Intent intent = new Intent(this, ProgressionActivity.class);
                             startActivity(intent);
                             existe = true;

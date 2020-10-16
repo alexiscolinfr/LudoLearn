@@ -729,7 +729,7 @@ public class QuizActivity extends AppCompatActivity {
                 "Masculin singulier",
                 "Féminin singulier",
                 "Féminin pluriel",
-                "Vous dites",
+                "Masculin pluriel",
                 "Français"
         );
         question59.save();
@@ -913,7 +913,7 @@ public class QuizActivity extends AppCompatActivity {
             }
 
             // On passe à la question suivante
-            if (nQuestion < 21) {
+            if (nQuestion <= 20) {
                 listeBouton.clear();
                 TextView text = (TextView) findViewById(R.id.textViewQuestion);
                 text.setText(listeQuestion.get(intList.get(nQuestion - 1)).getIntitule());
