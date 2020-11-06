@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.polytech.ludolearn.database.Profil;
 import com.polytech.ludolearn.database.Resultat;
@@ -97,6 +98,12 @@ public class QuizResultsActivity extends AppCompatActivity {
 
     public void restartQuiz(View view) {
         Intent intent = new Intent(this, QuizActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
+    public void onBackPressed(){
+        Intent intent = new Intent(this, ChoixExerciceActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }

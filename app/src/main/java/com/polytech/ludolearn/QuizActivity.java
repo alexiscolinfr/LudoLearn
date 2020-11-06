@@ -956,4 +956,9 @@ public class QuizActivity extends AppCompatActivity {
             }
         }
     }
+
+    @Override
+    public void onBackPressed(){
+        Toast.makeText(this, "Tu dois finir cette partie avant de pouvoir revenir au menu principal !", Toast.LENGTH_LONG).show();
+    }
 }
