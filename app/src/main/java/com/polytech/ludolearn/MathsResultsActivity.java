@@ -20,6 +20,7 @@ public class MathsResultsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maths_results);
+        setTitle(R.string.maths_game);
         nbErreurs = getIntent().getIntExtra("nbErreurs", 0);
         afficherResultats();
     }

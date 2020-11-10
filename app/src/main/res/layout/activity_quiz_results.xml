@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".QuizResultsActivity">
 
     <LinearLayout
@@ -21,50 +22,58 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:gravity="center"
-            android:textSize="40sp"
-            android:text="@string/results" />
+            android:text="@string/results"
+            android:textSize="40sp" />
 
-        <TextView
-            android:id="@+id/textViewErreursFrancais"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="@string/french" />
+            android:layout_height="match_parent"
+            android:background="@drawable/border2"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textViewErreursMaths"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="@string/maths" />
+            <TextView
+                android:id="@+id/textViewErreursFrancais"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/french"
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/textViewErreursAnglais"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="@string/english" />
+            <TextView
+                android:id="@+id/textViewErreursMaths"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/maths"
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/textViewErreursSciences"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="@string/science" />
+            <TextView
+                android:id="@+id/textViewErreursAnglais"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/english"
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/textViewErreursHistoire"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="@string/history" />
+            <TextView
+                android:id="@+id/textViewErreursSciences"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/science"
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/textViewErreursGeographie"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="@string/geography" />
+            <TextView
+                android:id="@+id/textViewErreursHistoire"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/history"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textViewErreursGeographie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/geography"
+                android:textSize="20sp" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout

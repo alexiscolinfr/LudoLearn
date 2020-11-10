@@ -37,15 +37,19 @@ public class MathsActivity extends AppCompatActivity {
 
         switch (choixCalculs) {
             case "addition":
+                setTitle("Maths - Additions");
                 initAdditions();
                 break;
             case "soustraction":
+                setTitle("Maths - Soustractions");
                 initSoustractions();
                 break;
             case "division":
+                setTitle("Maths - Divisions");
                 initDivision();
                 break;
             default:
+                setTitle("Maths - Multiplications");
                 initMultiplication();
                 break;
         }

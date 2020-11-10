@@ -20,6 +20,7 @@ public class QuizResultsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_results);
+        setTitle(R.string.quiz_game);
 
         Profil profil = ConnexionActivity.profil;
 

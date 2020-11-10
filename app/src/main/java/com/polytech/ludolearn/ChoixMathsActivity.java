@@ -12,6 +12,7 @@ public class ChoixMathsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choix_maths);
+        setTitle(R.string.maths_game);
     }
 
     public void addition(View view) {

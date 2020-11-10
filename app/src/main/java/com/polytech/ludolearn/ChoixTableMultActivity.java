@@ -13,6 +13,7 @@ public class ChoixTableMultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choix_table_mult);
+        setTitle(R.string.maths_game);
 
         NumberPicker choixNum = findViewById(R.id.table);
         choixNum.setMinValue(0);

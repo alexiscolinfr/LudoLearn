@@ -31,9 +31,8 @@ public class InscriptionActivity extends AppCompatActivity {
         assert extras != null;
         isTeacher = extras.getBoolean("isTeacher");
 
-        TextView titre = findViewById(R.id.textViewInscription);
-        if(isTeacher) { titre.setText(R.string.teacher_sign_up); }
-        else { titre.setText(R.string.student_sign_up); }
+        if(isTeacher) { setTitle(R.string.teacher_sign_up); }
+        else { setTitle(R.string.student_sign_up); }
     }
 
     public void takePicture(View view){

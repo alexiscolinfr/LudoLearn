@@ -16,6 +16,7 @@ public class ChoixExerciceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choix_exercice);
+        setTitle(R.string.game_choice);
 
         TextView text = findViewById(R.id.textViewName);
         ImageView img = findViewById(R.id.imageViewProfilePicture);

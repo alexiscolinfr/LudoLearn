@@ -51,7 +51,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ChoixExerciceActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ConnexionActivity"
             android:screenOrientation="portrait" />

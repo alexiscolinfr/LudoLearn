@@ -45,6 +45,7 @@ public class PenduActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.categorie_pendu);
+        setTitle(R.string.pendu_game);
         initListeMots();
     }
 

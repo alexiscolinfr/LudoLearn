@@ -16,7 +16,7 @@
     <string name="email">E-mail :</string>
     <string name="password">Mot de passe :</string>
     <string name="validate">Valider</string>
-    <string name="game_choice">Choix du jeu :</string>
+    <string name="game_choice">Choix du jeu</string>
     <string name="welcome">Bienvenue</string>
     <string name="next_question">Question suivante</string>
     <string name="next_intruder">Intrus suivant</string>

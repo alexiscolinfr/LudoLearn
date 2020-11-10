@@ -17,6 +17,7 @@ public class IntrusResultsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intrus_results);
+        setTitle(R.string.intrus_game);
         Profil profil = ConnexionActivity.profil;
 
         TextView textScore = findViewById(R.id.nbErreurs);

@@ -33,6 +33,7 @@ public class IntrusActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intrus);
+        setTitle(R.string.intrus_game);
 
         nbErreurs = 0;
 
