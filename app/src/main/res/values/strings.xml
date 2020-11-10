@@ -42,4 +42,11 @@
     <string name="maths_game">Jeu des Maths</string>
     <string name="intrus_game">Jeu de l\'Intrus</string>
     <string name="pendu_game">Jeu du Pendu</string>
+    <string name="profil">Mon profil</string>
+    <string name="change_informations">Modifier mes informations</string>
+    <string name="change_password">Changer de mot de passe</string>
+    <string name="new_password">Nouveau mot de passe :</string>
+    <string name="confirm_password">Confirmer le mot de passe :</string>
+    <string name="save">Enregistrer</string>
+    <string name="total">Total :</string>
 </resources>

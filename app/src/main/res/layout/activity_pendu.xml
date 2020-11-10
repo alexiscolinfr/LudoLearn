@@ -26,7 +26,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textCategorie"
-        app:srcCompat="@drawable/pendu0" />
+        app:srcCompat="@drawable/pendu0"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/motADeviner"
@@ -81,7 +82,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="letterVerification"
                 android:text="A"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
                 android:id="@+id/buttonB"
@@ -89,7 +91,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="letterVerification"
                 android:text="B"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
                 android:id="@+id/buttonC"
@@ -97,7 +100,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="letterVerification"
                 android:text="C"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
                 android:id="@+id/buttonD"
@@ -105,7 +109,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="letterVerification"
                 android:text="D"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
                 android:id="@+id/buttonE"
@@ -113,7 +118,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="letterVerification"
                 android:text="E"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
                 android:id="@+id/buttonF"
@@ -121,7 +127,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="letterVerification"
                 android:text="F"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText" />
         </LinearLayout>
 
         <LinearLayout
@@ -137,7 +144,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="letterVerification"
                 android:text="G"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
                 android:id="@+id/buttonH"
@@ -145,7 +153,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="letterVerification"
                 android:text="H"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
                 android:id="@+id/buttonI"
@@ -153,7 +162,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="letterVerification"
                 android:text="I"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
                 android:id="@+id/buttonJ"
@@ -161,7 +171,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="letterVerification"
                 android:text="J"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
                 android:id="@+id/buttonK"
@@ -169,7 +180,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="letterVerification"
                 android:text="K"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
                 android:id="@+id/buttonL"
@@ -177,7 +189,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="letterVerification"
                 android:text="L"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText" />
         </LinearLayout>
 
         <LinearLayout
@@ -193,7 +206,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="letterVerification"
                 android:text="M"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
                 android:id="@+id/buttonN"
@@ -201,7 +215,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="letterVerification"
                 android:text="N"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
                 android:id="@+id/buttonO"
@@ -209,7 +224,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="letterVerification"
                 android:text="O"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
                 android:id="@+id/buttonP"
@@ -217,7 +233,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="letterVerification"
                 android:text="P"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
                 android:id="@+id/buttonQ"
@@ -225,7 +242,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="letterVerification"
                 android:text="Q"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
                 android:id="@+id/buttonR"
@@ -233,7 +251,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="letterVerification"
                 android:text="R"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText" />
         </LinearLayout>
 
         <LinearLayout
@@ -249,7 +268,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="letterVerification"
                 android:text="S"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
                 android:id="@+id/buttonT"
@@ -257,7 +277,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="letterVerification"
                 android:text="T"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
                 android:id="@+id/buttonU"
@@ -265,7 +286,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="letterVerification"
                 android:text="U"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
                 android:id="@+id/buttonV"
@@ -273,7 +295,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="letterVerification"
                 android:text="V"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
                 android:id="@+id/buttonW"
@@ -281,7 +304,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="letterVerification"
                 android:text="W"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
                 android:id="@+id/buttonX"
@@ -289,7 +313,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="letterVerification"
                 android:text="X"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText" />
         </LinearLayout>
 
         <LinearLayout
@@ -305,7 +330,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="letterVerification"
                 android:text="Y"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
                 android:id="@+id/buttonZ"
@@ -314,7 +340,8 @@
                 android:layout_marginBottom="10dip"
                 android:onClick="letterVerification"
                 android:text="Z"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText" />
         </LinearLayout>
 
     </LinearLayout>

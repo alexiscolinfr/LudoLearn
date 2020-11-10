@@ -2,6 +2,7 @@ package com.polytech.ludolearn;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -25,6 +26,7 @@ public class MathsResultsActivity extends AppCompatActivity {
         afficherResultats();
     }
 
+    @SuppressLint("SetTextI18n")
     private void afficherResultats() {
         choixCalcul = getIntent().getStringExtra("choixCalculs");
         TextView textCategorie = findViewById(R.id.nomTypeCalcul);
@@ -47,7 +49,7 @@ public class MathsResultsActivity extends AppCompatActivity {
         }
 
         TextView textErreur = findViewById(R.id.nbErreurs);
-        textErreur.setText(Integer.toString(nbErreurs) + " erreurs");
+        textErreur.setText(nbErreurs + " erreurs");
 
         int note = 2*(5-nbErreurs);
         Resultat resultatMaths = new Resultat(profil.getAdresseMail(),"Maths",choixCalcul,note);

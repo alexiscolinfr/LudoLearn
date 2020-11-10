@@ -26,7 +26,7 @@ public class ProgressionActivity extends AppCompatActivity {
         Utils.init(this);
         setTitle("Résultats");
 
-        ListView listView = (ListView) findViewById(R.id.listView);
+        ListView listView = findViewById(R.id.listView);
         Profil profil = ConnexionActivity.profil;
         int codeClasse = profil.getCodeClasse();
         final List<Profil> profils = Select.from(Profil.class).where(Condition.prop("is_teacher").eq(0),Condition.prop("code_classe").eq(codeClasse)).list();

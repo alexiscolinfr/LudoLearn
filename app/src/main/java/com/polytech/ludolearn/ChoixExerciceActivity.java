@@ -2,16 +2,18 @@ package com.polytech.ludolearn;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.polytech.ludolearn.database.Profil;
 
 public class ChoixExerciceActivity extends AppCompatActivity {
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +21,7 @@ public class ChoixExerciceActivity extends AppCompatActivity {
         setTitle(R.string.game_choice);
 
         TextView text = findViewById(R.id.textViewName);
-        ImageView img = findViewById(R.id.imageViewProfilePicture);
+        ImageButton img = findViewById(R.id.imageButtonProfilePicture);
 
         Profil profil = ConnexionActivity.profil;
 
@@ -28,6 +30,11 @@ public class ChoixExerciceActivity extends AppCompatActivity {
         if (profil.getPhoto(this) != null) {
             img.setImageBitmap(profil.getPhoto(this));
         }
+    }
+
+    public void openProfil(View view){
+        Intent intent = new Intent(this, ProfilActivity.class);
+        startActivity(intent);
     }
 
     public void playMaths (View view) {

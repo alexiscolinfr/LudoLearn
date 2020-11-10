@@ -2,20 +2,18 @@ package com.polytech.ludolearn;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.polytech.ludolearn.database.Profil;
 import com.polytech.ludolearn.database.Resultat;
 
-import java.util.List;
-
 public class QuizResultsActivity extends AppCompatActivity {
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,10 +23,10 @@ public class QuizResultsActivity extends AppCompatActivity {
         Profil profil = ConnexionActivity.profil;
 
         // Affichage du score en Anglais
-        TextView textScore = (TextView) findViewById(R.id.textViewErreursAnglais);
+        TextView textScore = findViewById(R.id.textViewErreursAnglais);
         int nbQuestions = QuizActivity.nbQuestionsAnglais;
         int nbReponseCorrecte = nbQuestions - QuizActivity.nbErreursAnglais;
-        textScore.setText(textScore.getText() + " : " + Integer.toString(nbReponseCorrecte) + "/" + Integer.toString(nbQuestions));
+        textScore.setText(textScore.getText() + " : " + nbReponseCorrecte + "/" + nbQuestions);
         if(nbQuestions>0){
            int note = (10*nbReponseCorrecte)/nbQuestions;
             Resultat resultatAnglais = new Resultat(profil.getAdresseMail(),"Quiz","Anglais", note);
@@ -36,10 +34,10 @@ public class QuizResultsActivity extends AppCompatActivity {
         }
 
         // Affichage du score en Français
-        textScore = (TextView) findViewById(R.id.textViewErreursFrancais);
+        textScore = findViewById(R.id.textViewErreursFrancais);
         nbQuestions = QuizActivity.nbQuestionsFrancais;
         nbReponseCorrecte = nbQuestions - QuizActivity.nbErreursFrancais;
-        textScore.setText(textScore.getText() + " : " + Integer.toString(nbReponseCorrecte) + "/" + Integer.toString(nbQuestions));
+        textScore.setText(textScore.getText() + " : " + nbReponseCorrecte + "/" + nbQuestions);
         if(nbQuestions>0){
             int note = (10*nbReponseCorrecte)/nbQuestions;
             Resultat resultatFrancais = new Resultat(profil.getAdresseMail(),"Quiz","Français", note);
@@ -47,10 +45,10 @@ public class QuizResultsActivity extends AppCompatActivity {
         }
 
         // Affichage du score en Histoire
-        textScore = (TextView) findViewById(R.id.textViewErreursHistoire);
+        textScore = findViewById(R.id.textViewErreursHistoire);
         nbQuestions = QuizActivity.nbQuestionsHistoire;
         nbReponseCorrecte = nbQuestions - QuizActivity.nbErreursHistoire;
-        textScore.setText(textScore.getText() + " : " + Integer.toString(nbReponseCorrecte) + "/" + Integer.toString(nbQuestions));
+        textScore.setText(textScore.getText() + " : " + nbReponseCorrecte + "/" + nbQuestions);
         if(nbQuestions>0){
             int note = (10*nbReponseCorrecte)/nbQuestions;
             Resultat resultatHistoire = new Resultat(profil.getAdresseMail(),"Quiz","Histoire", note);
@@ -58,10 +56,10 @@ public class QuizResultsActivity extends AppCompatActivity {
         }
 
         // Affichage du score en Géographie
-        textScore = (TextView) findViewById(R.id.textViewErreursGeographie);
+        textScore = findViewById(R.id.textViewErreursGeographie);
         nbQuestions = QuizActivity.nbQuestionsGeographie;
         nbReponseCorrecte = nbQuestions - QuizActivity.nbErreursGeographie;
-        textScore.setText(textScore.getText() + " : " + Integer.toString(nbReponseCorrecte) + "/" + Integer.toString(nbQuestions));
+        textScore.setText(textScore.getText() + " : " + nbReponseCorrecte + "/" + nbQuestions);
         if(nbQuestions>0){
             int note = (10*nbReponseCorrecte)/nbQuestions;
             Resultat resultatGeographie = new Resultat(profil.getAdresseMail(),"Quiz","Géographie", note);
@@ -69,10 +67,10 @@ public class QuizResultsActivity extends AppCompatActivity {
         }
 
         // Affichage du score en Mathématiques
-        textScore = (TextView) findViewById(R.id.textViewErreursMaths);
+        textScore = findViewById(R.id.textViewErreursMaths);
         nbQuestions = QuizActivity.nbQuestionsMaths;
         nbReponseCorrecte = nbQuestions - QuizActivity.nbErreursMaths;
-        textScore.setText(textScore.getText() + " : " + Integer.toString(nbReponseCorrecte) + "/" + Integer.toString(nbQuestions));
+        textScore.setText(textScore.getText() + " : " + nbReponseCorrecte + "/" + nbQuestions);
         if(nbQuestions>0){
             int note = (10*nbReponseCorrecte)/nbQuestions;
             Resultat resultatMaths = new Resultat(profil.getAdresseMail(),"Quiz","Mathématiques", note);
@@ -80,10 +78,10 @@ public class QuizResultsActivity extends AppCompatActivity {
         }
 
         // Affichage du score en Sciences
-        textScore = (TextView) findViewById(R.id.textViewErreursSciences);
+        textScore = findViewById(R.id.textViewErreursSciences);
         nbQuestions = QuizActivity.nbQuestionsSciences;
         nbReponseCorrecte = nbQuestions - QuizActivity.nbErreursSciences;
-        textScore.setText(textScore.getText() + " : " + Integer.toString(nbReponseCorrecte) + "/" + Integer.toString(nbQuestions));
+        textScore.setText(textScore.getText() + " : " + nbReponseCorrecte + "/" + nbQuestions);
         if(nbQuestions>0){
             int note = (10*nbReponseCorrecte)/nbQuestions;
             Resultat resultatSciences = new Resultat(profil.getAdresseMail(),"Quiz","Sciences", note);

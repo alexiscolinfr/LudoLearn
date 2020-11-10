@@ -27,13 +27,14 @@ public class EleveAdapter extends ArrayAdapter<Profil> {
         DetailViewHolder viewHolder = (DetailViewHolder) convertView.getTag();
         if(viewHolder == null){
             viewHolder = new DetailViewHolder();
-            viewHolder.detailPrenom = (TextView) convertView.findViewById(R.id.textViewPrenom);
-            viewHolder.detailNom = (TextView) convertView.findViewById(R.id.textViewNom);
+            viewHolder.detailPrenom = convertView.findViewById(R.id.textViewPrenom);
+            viewHolder.detailNom = convertView.findViewById(R.id.textViewNom);
             convertView.setTag(viewHolder);
         }
 
         Profil profil = getItem(position);
 
+        assert profil != null;
         viewHolder.detailPrenom.setText(profil.getPrenom());
         viewHolder.detailNom.setText(profil.getNom());
 

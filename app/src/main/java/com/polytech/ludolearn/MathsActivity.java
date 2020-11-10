@@ -3,6 +3,7 @@ package com.polytech.ludolearn;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
@@ -55,6 +56,7 @@ public class MathsActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private void initSoustractions() {
         Random random = new Random();
         int randNum = random.nextInt(100) + 1;
@@ -98,6 +100,7 @@ public class MathsActivity extends AppCompatActivity {
         operation5.setText(randNum + " - " + randNum2 + " = ");
     }
 
+    @SuppressLint("SetTextI18n")
     private void initAdditions() {
         Random random = new Random();
         int randNum = random.nextInt(100) + 1;
@@ -126,6 +129,7 @@ public class MathsActivity extends AppCompatActivity {
         operation5.setText(randNum + " + " + randNum2 + " = ");
     }
 
+    @SuppressLint("SetTextI18n")
     private void initDivision() {
         Random random = new Random();
         int randNum = 0;
@@ -175,6 +179,7 @@ public class MathsActivity extends AppCompatActivity {
         operation5.setText(randNum + " / " + randNum2 + " = ");
     }
 
+    @SuppressLint("SetTextI18n")
     private void initMultiplication() {
         int table = getIntent().getIntExtra("table", 1);
         Random random = new Random();
@@ -199,6 +204,7 @@ public class MathsActivity extends AppCompatActivity {
         operation5.setText(randNum + " x " + table + " = ");
     }
 
+    @SuppressLint("SetTextI18n")
     public void validate(View v) {
         if (verifChamps()) {
             if(!verificationReponse) {

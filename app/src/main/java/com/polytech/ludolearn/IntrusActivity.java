@@ -3,6 +3,7 @@ package com.polytech.ludolearn;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
@@ -29,6 +30,7 @@ public class IntrusActivity extends AppCompatActivity {
     public static int nbErreurs;
     public boolean choixEffectue;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -186,6 +188,7 @@ public class IntrusActivity extends AppCompatActivity {
         question10.save();
     }
 
+    @SuppressLint("SetTextI18n")
     public void nextIntruder(View view) {
         // Si aucune réponse n'est donnée
         if (!choixEffectue) {

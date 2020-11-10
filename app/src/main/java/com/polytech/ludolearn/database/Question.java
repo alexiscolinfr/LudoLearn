@@ -44,28 +44,4 @@ public class Question extends SugarRecord {
     public String getTag() {
         return tag;
     }
-
-    public void setIntitule(String intitule) {
-        this.intitule = intitule;
-    }
-
-    public void setReponseFausse1(String reponseFausse1) {
-        this.reponseFausse1 = reponseFausse1;
-    }
-
-    public void setReponseFausse2(String reponseFausse2) {
-        this.reponseFausse2 = reponseFausse2;
-    }
-
-    public void setReponseFausse3(String reponseFausse3) {
-        this.reponseFausse3 = reponseFausse3;
-    }
-
-    public void setReponseVrai(String reponseVraie) {
-        this.reponseVrai = reponseVraie;
-    }
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
 }

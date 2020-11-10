@@ -18,11 +18,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imageViewProfilePicture"
+        <ImageButton
+            android:id="@+id/imageButtonProfilePicture"
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/default_profile_picture" />
+            android:scaleType="fitCenter"
+            android:background="@null"
+            android:onClick="openProfil"
+            app:srcCompat="@drawable/default_profile_picture"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/textViewName"
@@ -44,7 +48,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="5dp">
+            android:layout_marginBottom="5dp"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -62,7 +67,8 @@
                     android:layout_weight="1"
                     android:text="@string/maths_game"
                     android:textAlignment="center"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="NestedWeights" />
 
                 <ImageButton
                     android:id="@+id/imageButtonMaths"
@@ -72,7 +78,8 @@
                     android:background="@null"
                     android:onClick="playMaths"
                     android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/jeu_maths" />
+                    app:srcCompat="@drawable/jeu_maths"
+                    tools:ignore="ContentDescription" />
 
             </LinearLayout>
 
@@ -92,7 +99,8 @@
                     android:layout_weight="1"
                     android:text="@string/quiz_game"
                     android:textAlignment="center"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="NestedWeights" />
 
                 <ImageButton
                     android:id="@+id/imageButtonQuiz"
@@ -102,7 +110,8 @@
                     android:background="@null"
                     android:onClick="playQuiz"
                     android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/jeu_quiz" />
+                    app:srcCompat="@drawable/jeu_quiz"
+                    tools:ignore="ContentDescription" />
 
             </LinearLayout>
 
@@ -112,7 +121,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -130,7 +140,8 @@
                     android:layout_weight="1"
                     android:text="@string/pendu_game"
                     android:textAlignment="center"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="NestedWeights" />
 
                 <ImageButton
                     android:id="@+id/imageButtonPendu"
@@ -140,7 +151,8 @@
                     android:background="@null"
                     android:onClick="playPendu"
                     android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/jeu_pendu" />
+                    app:srcCompat="@drawable/jeu_pendu"
+                    tools:ignore="ContentDescription" />
 
             </LinearLayout>
 
@@ -160,7 +172,8 @@
                     android:layout_weight="1"
                     android:text="@string/intrus_game"
                     android:textAlignment="center"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="NestedWeights" />
 
                 <ImageButton
                     android:id="@+id/imageButtonIntrus"
@@ -170,7 +183,8 @@
                     android:background="@null"
                     android:onClick="playIntrus"
                     android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/jeu_intrus" />
+                    app:srcCompat="@drawable/jeu_intrus"
+                    tools:ignore="ContentDescription" />
 
             </LinearLayout>
 

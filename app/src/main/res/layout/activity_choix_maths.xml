@@ -39,7 +39,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="addition"
-                app:srcCompat="@drawable/addition" />
+                app:srcCompat="@drawable/addition"
+                tools:ignore="ContentDescription" />
 
             <ImageView
                 android:id="@+id/imageViewMoins"
@@ -47,7 +48,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="soustraction"
-                app:srcCompat="@drawable/soustraction" />
+                app:srcCompat="@drawable/soustraction"
+                tools:ignore="ContentDescription" />
         </LinearLayout>
 
         <LinearLayout
@@ -61,7 +63,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="multiplication"
-                app:srcCompat="@drawable/multiplication" />
+                app:srcCompat="@drawable/multiplication"
+                tools:ignore="ContentDescription" />
 
             <ImageView
                 android:id="@+id/imageViewDivise"
@@ -69,7 +72,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="division"
-                app:srcCompat="@drawable/division" />
+                app:srcCompat="@drawable/division"
+                tools:ignore="ContentDescription" />
         </LinearLayout>
 
     </LinearLayout>

@@ -35,7 +35,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                tools:ignore="Autofill,LabelFor" />
 
         </LinearLayout>
 
@@ -57,7 +58,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                tools:ignore="Autofill,LabelFor"/>
         </LinearLayout>
 
         <LinearLayout
@@ -79,7 +81,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="number"
-                android:maxLength="10" />
+                android:maxLength="10"
+                tools:ignore="Autofill,LabelFor"/>
         </LinearLayout>
 
         <LinearLayout
@@ -100,7 +103,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                tools:ignore="Autofill,LabelFor"/>
         </LinearLayout>
 
         <LinearLayout
@@ -121,7 +125,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                tools:ignore="Autofill,LabelFor" />
         </LinearLayout>
 
     </LinearLayout>
@@ -135,7 +140,8 @@
         android:onClick="takePicture"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:ignore="ContentDescription" />
 
     <Button
         android:id="@+id/buttonValidate"

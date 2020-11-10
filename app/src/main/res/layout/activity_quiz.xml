@@ -61,14 +61,16 @@
                 android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:layout_weight="1"
-                android:onClick="validate" />
+                android:onClick="validate"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/button2"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:layout_weight="1"
-                android:onClick="validate" />
+                android:onClick="validate"
+                tools:ignore="ButtonStyle" />
         </LinearLayout>
 
         <LinearLayout
@@ -81,14 +83,16 @@
                 android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:layout_weight="1"
-                android:onClick="validate" />
+                android:onClick="validate"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/button4"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:layout_weight="1"
-                android:onClick="validate" />
+                android:onClick="validate"
+                tools:ignore="ButtonStyle" />
         </LinearLayout>
     </LinearLayout>
 

@@ -18,10 +18,6 @@ public class Resultat extends SugarRecord {
         this.note = note;
     }
 
-    public String getAdresseMail() { return adresseMail; }
-
-    public String getJeu(){ return jeu; }
-
     public String getCategorie(){ return categorie; }
 
     public Integer getNote(){ return note; }

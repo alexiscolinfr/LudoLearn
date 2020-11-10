@@ -31,8 +31,7 @@ public class Profil extends SugarRecord {
 
     public Bitmap getPhoto(Context context) {
         try{
-            Bitmap bitmap = BitmapFactory.decodeStream(context.openFileInput(photoPath));
-            return bitmap;
+            return BitmapFactory.decodeStream(context.openFileInput(photoPath));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -59,6 +58,18 @@ public class Profil extends SugarRecord {
 
     public String getMotDePasse(){
         return motDePasse;
+    }
+
+    public void setPrenom(String prenom){
+        this.prenom = prenom;
+    }
+
+    public void setNom(String nom){
+        this.nom = nom;
+    }
+
+    public void setMotDePasse(String motDePasse) {
+        this.motDePasse = motDePasse;
     }
 
     public void setPhoto(Bitmap photo, Context context) {

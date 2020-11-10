@@ -3,6 +3,7 @@ package com.polytech.ludolearn;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -108,6 +109,7 @@ public class PenduActivity extends AppCompatActivity {
     }
 
     // Vérifie si la lettre choisie fait partie du mot à deviner
+    @SuppressLint("SetTextI18n")
     public void letterVerification(View view) {
         Button b = (Button) view;
         if (nbErreurs < 11) {
@@ -226,6 +228,7 @@ public class PenduActivity extends AppCompatActivity {
 
     // Appelé lors du choix d'une catégorie par l'utilisateur
     // Définie la catégorie utilisée pour le Pendu
+    @SuppressLint("SetTextI18n")
     public void choixCategorie(View view) {
         Button b = (Button) view;
         setContentView(R.layout.activity_pendu);
