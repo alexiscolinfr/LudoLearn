@@ -44,7 +44,7 @@ public class IntrusActivity extends AppCompatActivity {
         // Génère une liste aléatoire de chiffres sans doublons
         int i = 0;
         while (i < 10) {
-            int val = new Random().nextInt(10);
+            int val = new Random().nextInt(20);
             if (!intList.contains(val)) {
                 intList.add(val);
                 i++;
@@ -186,6 +186,106 @@ public class IntrusActivity extends AppCompatActivity {
                 "Intrus"
         );
         question10.save();
+
+        Question question11 = new Question (
+                "Pays",
+                "Argentine",
+                "Chili",
+                "Honduras",
+                "Brésil",
+                "Intrus"
+        );
+        question11.save();
+
+        Question question12 = new Question (
+                "Jean Dujardin",
+                "OSS 117",
+                "Brice de Nice",
+                "The Artist",
+                "RRRrrrr!",
+                "Intrus"
+        );
+        question12.save();
+
+        Question question13 = new Question (
+                "Premier ministre français",
+                "Laurent Fabius",
+                "Alain Juppé",
+                "Jean-Pierre Raffarin",
+                "Jean-François Copé",
+                "Intrus"
+        );
+        question13.save();
+
+        Question question14 = new Question (
+                "Coldplay",
+                "Clocks",
+                "Viva la Vida",
+                "Paradise",
+                "I Gotta Feeling",
+                "Intrus"
+        );
+        question14.save();
+
+        Question question15 = new Question (
+                "Villes des États-Unis",
+                "Seattle",
+                "Chicago",
+                "Phoenix",
+                "Ottawa",
+                "Intrus"
+        );
+        question15.save();
+
+        Question question16 = new Question (
+                "Insecte",
+                "Papillon",
+                "Fourmi",
+                "Mante religieuse",
+                "Scorpion",
+                "Intrus"
+        );
+        question16.save();
+
+        Question question17 = new Question (
+                "Fruit rouge",
+                "Groseille",
+                "Cerise",
+                "Fraise",
+                "Nectarine",
+                "Intrus"
+        );
+        question17.save();
+
+        Question question18 = new Question (
+                "Groupes sanguins",
+                "A",
+                "B",
+                "O",
+                "G",
+                "Intrus"
+        );
+        question18.save();
+
+        Question question19 = new Question (
+                "Région Auvergne-Rhône-Alpes",
+                "Clermont-Ferrand",
+                "Grenoble",
+                "Bourg-en-Bresse",
+                "Besançon",
+                "Intrus"
+        );
+        question19.save();
+
+        Question question20 = new Question (
+                "Tennisman",
+                "Roger Federer",
+                "Andy Murray",
+                "Gaël Monfils",
+                "Antoine Griezmann",
+                "Intrus"
+        );
+        question20.save();
     }
 
     @SuppressLint("SetTextI18n")

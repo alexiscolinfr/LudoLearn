@@ -20,7 +20,7 @@
 
         <ImageButton
             android:id="@+id/imageButtonProfilePicture"
-            android:layout_width="100dp"
+            android:layout_width="80dp"
             android:layout_height="match_parent"
             android:scaleType="fitCenter"
             android:background="@null"
@@ -30,11 +30,23 @@
 
         <TextView
             android:id="@+id/textViewName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
             android:text="@string/welcome"
+            android:layout_weight="1"
             android:textSize="18sp" />
+
+        <ImageButton
+            android:id="@+id/imageButtonLogOut"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:background="@null"
+            android:onClick="logOut"
+            app:srcCompat="@drawable/logout"
+            tools:ignore="ContentDescription" />
     </LinearLayout>
 
     <LinearLayout

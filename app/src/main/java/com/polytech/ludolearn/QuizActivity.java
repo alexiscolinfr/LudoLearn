@@ -245,11 +245,11 @@ public class QuizActivity extends AppCompatActivity {
         question9.save();
 
         Question question10 = new Question (
-                "À la mort de Charlemagne, ses descendants partagent l’empire en trois empires :",
-                "la Francie occidentale (à l'est), la Francie orientale (à l'ouest), la Lotharingie (au centre)",
-                "la Francie occidentale (au centre), la Francie orientale (à l'est), la Lotharingie (à l'ouest)",
-                "la Francie occidentale (à l'ouest), la Francie orientale (au centre), la Lotharingie (à l'est)",
-                "la Francie occidentale (à l'ouest), la Francie orientale (à l'est), la Lotharingie (au centre)",
+                "Qui fut destitué par Fidel Castro en 1959 ?",
+                "Marcos Pérez Jiménez",
+                "Rómulo Betancourt",
+                "Salvador Allende",
+                "Fulgencio Batista",
                 "Histoire"
         );
         question10.save();
@@ -628,7 +628,7 @@ public class QuizActivity extends AppCompatActivity {
                 "Quelle propriété NE possède PAS le carré ?",
                 "4 angles droits",
                 "4 côtés égaux",
-                "Des diagonales de même milieu, de même longueur et perpendiculaires",
+                "Des diagonales de même longueur",
                 "Des côtés opposés non parallèles",
                 "Mathématiques"
         );
@@ -745,23 +745,21 @@ public class QuizActivity extends AppCompatActivity {
         question59.save();
 
         Question question60 = new Question (
-                "Quelle figure de style assimile deux termes pour insister sur les rapports de ressemblance qui les unissent," +
-                        " sans l'utilisation d'un mot comparatif ?",
-                "La comparaison",
-                "L'allégorie",
-                "La personnification",
-                "La métaphore",
+                "Les pommes qu’elle a … sont trop mûres.",
+                "acheté",
+                "achetée",
+                "achetés",
+                "achetées",
                 "Français"
         );
         question60.save();
 
         Question question61 = new Question (
-                "Quelle figure de style désigne un objet, une idée ou un être en utilisant " +
-                        "un autre mot qui lui est lié par une relation voisine, dans la langue ou dans la réalité ?",
-                "La comparaison",
-                "L'allégorie",
-                "La personnification",
-                "La métonymie",
+                "Dans les chambres d’hôtel, il y a souvent des …",
+                "coffres-fort",
+                "coffre-forts",
+                "coffre-fort",
+                "coffres-forts",
                 "Français"
         );
         question61.save();
@@ -787,12 +785,11 @@ public class QuizActivity extends AppCompatActivity {
         question63.save();
 
         Question question64 = new Question (
-                "Quelle figure de style cherche à atténuer une idée dont l'expression directe " +
-                        "aurait quelque chose de déplaisant et de choquant ?",
-                "La litote",
-                "L'anaphore",
+                "J’ai arrêté d’apprendre …, c’était trop difficile.",
+                "l’Alemand",
+                "l’Allemand",
                 "L'hyperbole",
-                "L'euphémisme",
+                "l’alemand",
                 "Français"
         );
         question64.save();

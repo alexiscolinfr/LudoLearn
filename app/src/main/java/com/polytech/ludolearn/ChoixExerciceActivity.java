@@ -37,6 +37,12 @@ public class ChoixExerciceActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void logOut(View view){
+        Intent intent = new Intent(this, AccueilActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
     public void playMaths (View view) {
         Intent intent = new Intent(this, ChoixMathsActivity.class);
         startActivity(intent);
